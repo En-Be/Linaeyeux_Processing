@@ -16,7 +16,7 @@ public class CanvasImageMaker : MonoBehaviour {
         SetParams();
         MakeAndAssignImage(); 
         MakeAndAssignTexture();
-        noise.MakeNoise();
+        noise.Setup();
     }
 
     private void SetParams()
@@ -40,5 +40,10 @@ public class CanvasImageMaker : MonoBehaviour {
     {
         Texture2D texture = new Texture2D(Mathf.RoundToInt(width), Mathf.RoundToInt(height), TextureFormat.RGBA32, false);
         rawImage.texture = texture;
+    }
+
+    private void Update()
+    {
+        noise.MakeNoise();
     }
 };

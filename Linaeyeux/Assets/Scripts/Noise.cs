@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class Noise : MonoBehaviour
 {
-    public RawImage rawImage;
+    private RawImage rawImage;
+    private Texture2D texture;
+    private int i;
+
+    public void Setup()
+    {
+        rawImage = GetComponentInChildren<RawImage>();
+        texture = rawImage.texture as Texture2D;
+    }
 
     public void MakeNoise()
     {
-        rawImage = GetComponentInChildren<RawImage>();
-        var texture = rawImage.texture as Texture2D;
         var data = texture.GetRawTextureData<Color32>();
 
         int index = 0;
@@ -23,10 +29,10 @@ public class Noise : MonoBehaviour
                     (byte)Random.Range(0, 255), 
                     (byte)Random.Range(0, 255), 
                     (byte)Random.Range(0, 255));
+                    
                 data[index++] = colour;
             }
         }
-        // upload to the GPU
         texture.Apply();
     }
 }

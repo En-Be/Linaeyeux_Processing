@@ -9,14 +9,18 @@ public class CanvasImageMaker : MonoBehaviour {
     private RawImage rawImage;
     private float width;
     private float height;
+
     private Noise noise;
+    private Tiles tiles;
 
     private void Start () 
     {
         SetParams();
         MakeAndAssignImage(); 
         MakeAndAssignTexture();
-        noise.Setup();
+        // noise.Setup();
+        tiles.Setup();
+        tiles.MakeTiles();
     }
 
     private void SetParams()
@@ -25,6 +29,7 @@ public class CanvasImageMaker : MonoBehaviour {
         width = Screen.width;
         height = Screen.height;
         noise = GetComponent<Noise>();
+        tiles = GetComponent<Tiles>();
     }
 
     private void MakeAndAssignImage()
@@ -44,6 +49,7 @@ public class CanvasImageMaker : MonoBehaviour {
 
     private void Update()
     {
-        noise.MakeNoise();
+        // noise.MakeNoise();
+        tiles.MakeTiles();
     }
 };

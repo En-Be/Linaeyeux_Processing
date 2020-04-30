@@ -6,7 +6,9 @@ class Objet
   
   boolean colourChosen = false;
   color c;
-  int size = 5;
+  int minSize = 20;
+  int maxSize = 1000;
+  int size = 20;
   boolean randomTarget;
   
   Objet(int x, int y)
@@ -25,42 +27,45 @@ class Objet
     
     if(!randomTarget)
     {
-      acceleration = mouse;
-      if(!colourChosen)
-      {
-        c = color(random(255),random(255),random(255));
-        fill(c);
-        colourChosen = true;
-      }
-      else
-      {
-        fill(c);
-      }
-      if(size <= 1000)
-      {
-        size += 1;
-      }
+      followTarget(mouse);
     }
     else
     {
-      acceleration = PVector.random2D();
-      colourChosen = false;
-      fill(0);
-      if(size >= 5)
-      {
-        size -= 10;
-      }
-
+      wander();
     }
     
     velocity.add(acceleration);
     velocity.limit(10);
-    position.add(velocity);
-    
-    constrain(size, 5, 1000);
-    
+    position.add(velocity); 
+    size = constrain(size, minSize, maxSize);
+
     Edges();
     Display();
+    
+  }
+  
+  void followTarget(PVector mouse)
+  {
+    acceleration = mouse;
+    if(!colourChosen)
+    {
+      c = color(random(255),random(255),random(255));
+      fill(c);
+      colourChosen = true;
+    }
+    else
+    {
+      fill(c);
+    }
+    size += 1;
+  }
+  
+  void wander()
+  {
+    acceleration = PVector.random2D();
+    colourChosen = false;
+    fill(0);
+    size -= 10;
   }
   
   void Edges()

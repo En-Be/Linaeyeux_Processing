@@ -7,26 +7,25 @@ class Button
   Button()
   {
     position = new PVector(width/2, height/2 + 100);
-    size = 100;
+    size = 200;
   }
   
   void Update()
   {
     if(overCircle(int(position.x), int(position.y), size))
     {
-      print("over button");
       for(Objet o : objets)
       {
         o.randomTarget = false;
       }
     }
-    
   }
   
   void Display()
   {
-    stroke(10);
-    fill(0, 255, 255);
+    stroke(0);
+    strokeWeight(10);
+    noFill();
     circle(position.x, position.y, size);
   }
   

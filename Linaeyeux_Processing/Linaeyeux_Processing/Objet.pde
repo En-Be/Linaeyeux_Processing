@@ -1,4 +1,4 @@
-class Ball
+class Objet
 {
   PVector position;
   PVector velocity;
@@ -6,9 +6,9 @@ class Ball
   
   boolean colourChosen = false;
   color c;
-  int ballSize = 5;
+  int size = 5;
   
-  Ball()
+  Objet()
   {
     position = new PVector(width/2, height/2);
     velocity = new PVector(0,0);
@@ -34,9 +34,9 @@ class Ball
       {
         fill(c);
       }
-      if(ballSize <= 1000)
+      if(size <= 1000)
       {
-        ballSize += 1;
+        size += 1;
       }
     }
     else
@@ -44,9 +44,9 @@ class Ball
       acceleration = PVector.random2D();
       colourChosen = false;
       fill(0);
-      if(ballSize >= 5)
+      if(size >= 5)
       {
-        ballSize -= 10;
+        size -= 10;
       }
 
     }
@@ -55,7 +55,7 @@ class Ball
     velocity.limit(10);
     position.add(velocity);
     
-    constrain(ballSize, 5, 1000);
+    constrain(size, 5, 1000);
 
   }
   
@@ -70,8 +70,7 @@ class Ball
   void display()
   {
     noStroke();
-    print(ballSize);
-    ellipse(position.x, position.y, ballSize, ballSize);
+    ellipse(position.x, position.y, size, size);
   }
   
 }

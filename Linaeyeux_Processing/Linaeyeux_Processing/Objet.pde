@@ -7,12 +7,14 @@ class Objet
   boolean colourChosen = false;
   color c;
   int size = 5;
+  boolean randomTarget;
   
   Objet(int x, int y)
   {
     position = new PVector(x, y);
     velocity = new PVector(0,0);
     acceleration = new PVector(0,0);
+    randomTarget = true;
   }
   
   void Update()
@@ -21,7 +23,7 @@ class Objet
     mouse.sub(position);
     mouse.setMag(0.5);
     
-    if(mousePressed)
+    if(!randomTarget)
     {
       acceleration = mouse;
       if(!colourChosen)

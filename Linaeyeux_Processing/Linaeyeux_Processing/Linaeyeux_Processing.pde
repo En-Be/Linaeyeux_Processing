@@ -24,6 +24,9 @@ boolean onAndroid = false;
 DebugDisplay debugDisplay = new DebugDisplay();
 Persistence persistence = new Persistence();
 
+// Buttons - This has to be initialised in setup because it depends on screen size having been set
+Button button;
+
 // Objets
 ArrayList<Objet> objets = new ArrayList<Objet>();
 int objetCount = 0;
@@ -35,14 +38,15 @@ void setup()
 {
   fullScreen();
   frameRate(30);
+  button = new Button();
 }
 
 void draw()
 {
 
-  inputUpdate();
   
   persistence.Update();
+  inputUpdate();
   
   for(Objet o : objets)
   {

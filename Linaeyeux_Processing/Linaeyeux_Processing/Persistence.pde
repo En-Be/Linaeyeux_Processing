@@ -25,7 +25,7 @@ class Persistence
   
   void Display()
   {
-    fill(255, opacity);
+    fill(0, opacity);
     rect(0, 0, width, height);
   }
   

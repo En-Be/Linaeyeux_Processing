@@ -2,7 +2,6 @@
 
 // ---- L I N A E Y E U X ----
 
-
 // A color organ or light synthesizer 
 
 // (a machine/application for generating and performing lumia, or light music, through a novel interface) 
@@ -17,11 +16,7 @@
 
 // ---- GLOBAL VARIABLES ----
 
-//platform
-boolean onAndroid = false;
-
 // Scales
-DebugDisplay debugDisplay = new DebugDisplay();
 Persistence persistence = new Persistence();
 
 // Buttons - This has to be initialised in setup because it depends on screen size having been set
@@ -31,6 +26,8 @@ Button button;
 ArrayList<Objet> objets = new ArrayList<Objet>();
 int objetCount = 0;
 
+// Debugging overlay
+DebugDisplay debugDisplay = new DebugDisplay();
 
 // ---- MAIN LOOP -----
 
@@ -43,8 +40,6 @@ void setup()
 
 void draw()
 {
-
-  
   persistence.Update();
   inputUpdate();
   

@@ -24,16 +24,12 @@ void inputUpdate()
   if(touches.length > 0)
   {
     //print("touch location: X = " + int(touches[0].x) + ", y = " + int(touches[0].y));
-  }
-  
-  button.Display();
-  
-  if(!mousePressed)
-  {
-    persistence.Down();
+    persistence.Up();
   }
   else
   {
-    persistence.Up();
-  }  
+    persistence.Down();
+  }
+  
+  button.Display();
 }

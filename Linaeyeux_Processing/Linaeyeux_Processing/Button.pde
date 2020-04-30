@@ -6,7 +6,7 @@ class Button
   
   Button()
   {
-    position = new PVector(width/2, height/2 + 100);
+    position = new PVector(width/2, height/2);
     size = 200;
   }
   
@@ -23,7 +23,7 @@ class Button
   
   void Display()
   {
-    stroke(0);
+    stroke(255);
     strokeWeight(10);
     noFill();
     circle(position.x, position.y, size);

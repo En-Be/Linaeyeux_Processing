@@ -64,7 +64,7 @@ class Objet
   {
     acceleration = PVector.random2D();
     colourChosen = false;
-    fill(0);
+    fill(255);
     size -= 10;
   }
   

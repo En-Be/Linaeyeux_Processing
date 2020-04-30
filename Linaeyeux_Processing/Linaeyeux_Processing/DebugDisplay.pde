@@ -21,7 +21,7 @@ class DebugDisplay
   void Display()
   {
     textSize(40);
-    fill(0);
+    fill(255);
     text(frameRate, 10, frameRateYPos);
     text(objets.size(), 10, frameRateYPos + 50);
   }

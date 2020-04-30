@@ -1,11 +1,11 @@
 # Linaeyeux
 
-A color organ (a machine/application for generating and performing lumia, or light music, through a novel interface) with features for graphism (the expression of abstract thought in material symbols).
+A color organ or light synthesizer (a machine/application for generating and performing lumia, or light music, through a novel interface) with features for graphism (the expression of abstract thought in material symbols).
 
 *Linae is latin for line, yeux is french for light.*
 
 
-Inspired by Thomas Wilfred and his clavilux, and Fry and his holophonor.
+Inspired by Thomas Wilfred and his clavilux, and Fry and his holophonor, and Hime and her spaceship.
 
 ## User stories
 
@@ -95,12 +95,14 @@ Played out in time, they can be seen as exploratory performances.
 
 The interface is like an adaptive instrument, starting from a simple slide up and down, and unfolding
 
+The first scale is time (framerate). Higher on the scale, the faster everything updates
+
 Sliding up is the journey out of the navel, the journey back after reaching the top
 
 One or two or three fingers
  - one: time
  - two: scales
- - three: randomness
+ - three: macros
 
 Several scales available for sliding:
 
@@ -112,32 +114,32 @@ Several scales available for sliding:
 - Small and big
 - Structured and free
 - Moving and still
-- Ephemeral or enduring
+- Ephemeral and persistent
 - Soft and hard
-- Saturated or monochrome
+- Saturated and monochrome
 - Empty and full
 - Rigid and fluid
 
 All scales have an accompanying random scale
 
-All controls abstract upwards ie all randomness scales can be controlled individually, or with one slider
+All controls abstract upwards ie all randomness scales can be controlled individually, or with one slider, through using macros
 
 Emergent significance.
 The percieved combination of scales over time adds up to meaning, like music
-
-Rewind time. When journeying out by moving down, when journeying back by moving up.
 
 Scales affect the behaviour of objets moving around the canvas
 
 Tap to add objets
 
-Objets can have a destination by holding them and dragging it out
-
-Objets reach their destination at the end of the journey out, then return to their origin on the journey back
+Objets destination defaults to the center of the screen. The player can change this by dragging
 
 Destinations and objets cannot leave the canvas
 
-With skill, the player can feel like and orchestra conductor
+Symmetry on x and y
+
+Rewind time. This could be tricky to implement.
+
+With skill, the player can feel like an orchestra conductor
 
 ## User input
 

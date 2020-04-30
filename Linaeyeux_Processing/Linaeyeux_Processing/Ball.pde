@@ -6,6 +6,7 @@ class Ball
   
   boolean colourChosen = false;
   color c;
+  int ballSize = 5;
   
   Ball()
   {
@@ -33,18 +34,29 @@ class Ball
       {
         fill(c);
       }
+      if(ballSize <= 1000)
+      {
+        ballSize += 1;
+      }
     }
     else
     {
       acceleration = PVector.random2D();
       colourChosen = false;
       fill(0);
+      if(ballSize >= 5)
+      {
+        ballSize -= 10;
+      }
 
     }
     
     velocity.add(acceleration);
     velocity.limit(10);
     position.add(velocity);
+    
+    constrain(ballSize, 5, 1000);
+
   }
   
   void edges()
@@ -58,7 +70,8 @@ class Ball
   void display()
   {
     noStroke();
-    ellipse(position.x, position.y, 25, 25);
+    print(ballSize);
+    ellipse(position.x, position.y, ballSize, ballSize);
   }
   
 }

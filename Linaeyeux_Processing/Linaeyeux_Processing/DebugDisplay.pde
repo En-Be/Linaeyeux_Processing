@@ -21,7 +21,7 @@ class DebugDisplay
   void Display()
   {
     textSize(40);
-
-  text(frameRate, 10, frameRateYPos);
+    fill(0);
+    text(frameRate, 10, frameRateYPos);
   }
 }

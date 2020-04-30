@@ -1,10 +1,9 @@
 
-int opacity = 255;
-
 DebugDisplay debugDisplay = new DebugDisplay();
+Persistence persistence = new Persistence();
 
 ArrayList<Objet> objets = new ArrayList<Objet>();
-int objetCount = 100;
+int objetCount = 50;
 
 void setup()
 {
@@ -20,17 +19,15 @@ void draw()
 {
   if(!mousePressed)
   {
-    opacity += 1;
+    persistence.Down();
   }
   else
   {
-    opacity -= 1;
+    persistence.Up();
   }
   
-  opacity = constrain(opacity, 0, 255);
+  persistence.Update();
 
-  fill(255, opacity);
-  rect(0, 0, width, height);
   
   for(Objet o : objets)
   {

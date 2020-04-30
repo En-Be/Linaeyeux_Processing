@@ -13,7 +13,7 @@ void setup()
   frameRate(30);
 }
 
-void mouseClicked()
+void mouseReleased()
 {
   objets.add(new Objet(mouseX, mouseY));
 }

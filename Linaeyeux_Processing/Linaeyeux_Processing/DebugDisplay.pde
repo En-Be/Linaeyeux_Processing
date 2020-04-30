@@ -23,5 +23,6 @@ class DebugDisplay
     textSize(40);
     fill(0);
     text(frameRate, 10, frameRateYPos);
+    text(objets.size(), 10, frameRateYPos + 50);
   }
 }

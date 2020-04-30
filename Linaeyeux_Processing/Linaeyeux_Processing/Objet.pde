@@ -8,14 +8,14 @@ class Objet
   color c;
   int size = 5;
   
-  Objet()
+  Objet(int x, int y)
   {
-    position = new PVector(width/2, height/2);
+    position = new PVector(x, y);
     velocity = new PVector(0,0);
     acceleration = new PVector(0,0);
   }
   
-  void update()
+  void Update()
   {
     PVector mouse = new PVector(mouseX, mouseY);
     mouse.sub(position);
@@ -56,10 +56,12 @@ class Objet
     position.add(velocity);
     
     constrain(size, 5, 1000);
-
+    
+    Edges();
+    Display();
   }
   
-  void edges()
+  void Edges()
   {
     if(position.x > width) position.x = 0;
     if(position.x < 0) position.x = width;
@@ -67,7 +69,7 @@ class Objet
     if(position.y < 0) position.y = height;
   }
   
-  void display()
+  void Display()
   {
     noStroke();
     ellipse(position.x, position.y, size, size);

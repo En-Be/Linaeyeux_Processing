@@ -1,6 +1,6 @@
 class ObjetSize
 {
-  int value;
+  int size;
   int minSize = 20;
   int maxSize = 1000;
   
@@ -11,15 +11,18 @@ class ObjetSize
   
   void Update()
   {
-
+    for(Objet o : objets)
+    {
+      o.size = size;
+    }
   }
   
-  int ConvertToScale(int percentage)
+  void ConvertToScale(int percentage)
   {
     float range = (maxSize - minSize) / 100.0;
     print("range = " + range);
     int convertedValue = int((percentage * range) + minSize);
     print("converted value = " + convertedValue);
-    return 0;
+    size = convertedValue;
   }
 }

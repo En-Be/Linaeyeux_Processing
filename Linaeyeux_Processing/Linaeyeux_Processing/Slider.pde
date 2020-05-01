@@ -18,6 +18,7 @@ class Slider
   {
     button.Update();
     objetSize.ConvertToScale(Value());
+    objetSize.Update();
   }
   
   void Display()

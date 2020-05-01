@@ -68,7 +68,6 @@ class Objet
     {
       fill(c);
     }
-    size += 1;
   }
   
   void wander()
@@ -76,7 +75,6 @@ class Objet
     acceleration = PVector.random2D();
     colourChosen = false;
     fill(255);
-    size -= 10;
   }
   
   void Edges()

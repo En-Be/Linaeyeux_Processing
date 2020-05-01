@@ -42,7 +42,7 @@ void touchStarted()
 void touchEnded() 
 {
   // if less than ten objets
-  if(settingTarget)
+  if(settingTarget && objets.size() < 12)
   {
     objets.add(new Objet(mouseX, mouseY, target));
   }

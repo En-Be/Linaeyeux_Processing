@@ -3,6 +3,7 @@ class DebugDisplay
   PVector frameRatePos;
   PVector numberOfObjets;
   int borderWidth = 50;
+  int iconSize;
   int UITextSize;
   
   DebugDisplay()
@@ -10,7 +11,7 @@ class DebugDisplay
     frameRatePos = new PVector(40, 40);
     numberOfObjets = new PVector(width - 80, 40);
     UITextSize = 30;
-
+    iconSize = 25;
   }
   
   void Update()
@@ -23,6 +24,7 @@ class DebugDisplay
     DrawBorder();
     DrawFrameRate();
     DrawNumberOfObjets();
+    DrawButtonPosition();
   }
   
   void DrawBorder()
@@ -32,6 +34,14 @@ class DebugDisplay
     rect(0, 0, borderWidth, height);
     rect(width - borderWidth, 0, width, height); 
     rect(0, height - borderWidth, width, height);
+  }
+  
+  void DrawButtonPosition()
+  {
+    fill(0);
+    noStroke();
+    circle(borderWidth/2, slider.button.position.y, iconSize);
+    circle(width - borderWidth/2, slider.button.position.y, iconSize);
   }
   
   void DrawFrameRate()

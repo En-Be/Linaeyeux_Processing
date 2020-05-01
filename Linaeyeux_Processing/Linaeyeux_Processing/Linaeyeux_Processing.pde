@@ -19,8 +19,8 @@
 // Scales
 Persistence persistence = new Persistence();
 
-// Buttons - This has to be initialised in setup because it depends on screen size having been set
-Button button;
+// Slider - This has to be initialised in setup because it depends on screen size having been set
+Slider slider;
 
 // Objets
 ArrayList<Objet> objets = new ArrayList<Objet>();
@@ -35,12 +35,13 @@ void setup()
 {
   fullScreen();
   frameRate(30);
-  button = new Button();
+  slider = new Slider();
 }
 
 void draw()
 {
   persistence.Update();
+  
   inputUpdate();
   
   for(Objet o : objets)

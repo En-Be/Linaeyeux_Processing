@@ -3,6 +3,7 @@ class Button
 {
   PVector position;
   int size;
+  boolean isBeingTouched = false;
   
   Button()
   {
@@ -10,22 +11,44 @@ class Button
     size = 200;
   }
   
-  void Update()
+  void CheckIfTouching()
   {
     if(overCircle(int(position.x), int(position.y), size))
+    {
+      isBeingTouched = true;
+    }
+    else
+    {
+      isBeingTouched = false;
+    }
+  }
+  
+  void Update()
+  {
+    if(isBeingTouched)
     {
       for(Objet o : objets)
       {
         o.randomTarget = false;
       }
+      
+      position.y = mouseY;
     }
+    else
+    {
+      for(Objet o : objets)
+      {
+        o.randomTarget = true;
+      }
+    }
+    position.y = constrain(position.y, 200, height - 200);
   }
   
   void Display()
   {
     stroke(255);
-    strokeWeight(10);
-    noFill();
+    strokeWeight(5);
+    fill(0);
     circle(position.x, position.y, size);
   }
   

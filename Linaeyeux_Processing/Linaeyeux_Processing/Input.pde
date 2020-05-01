@@ -5,17 +5,19 @@
 void touchStarted()
 {
   // send location to button to see if it's on it
-  button.Update();
+  //slider.Update();
+  slider.CheckIfTouching();
 }
 
 
 void touchEnded() 
 {
   objets.add(new Objet(mouseX, mouseY));
-  for(Objet o : objets)
-  {
-    o.randomTarget = true;
-  }
+  //for(Objet o : objets)
+  //{
+  //  o.randomTarget = true;
+  //}
+  slider.StopTouching();
 }
 
 
@@ -30,6 +32,6 @@ void inputUpdate()
   {
     persistence.Down();
   }
-  
-  button.Display();
+  slider.Update();
+  slider.Display();
 }

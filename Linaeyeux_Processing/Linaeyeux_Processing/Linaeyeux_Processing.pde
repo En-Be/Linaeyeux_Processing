@@ -33,6 +33,7 @@ DebugDisplay debugDisplay = new DebugDisplay();
 
 void setup()
 {
+  orientation(PORTRAIT);
   fullScreen();
   frameRate(30);
   slider = new Slider();

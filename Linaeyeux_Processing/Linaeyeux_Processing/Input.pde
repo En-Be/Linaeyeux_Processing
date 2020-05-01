@@ -1,4 +1,5 @@
-
+boolean settingTarget;
+PVector target;
 
 // ---- ANDROID INPUT ---
 
@@ -6,11 +7,15 @@ void inputUpdate()
 {
   if(touches.length > 0)
   {
-    //objetPersistence.Up();
+    if(settingTarget)
+    {
+      target = new PVector(mouseX, mouseY);
+      SetObjetTarget(target);
+    }
   }
   else
   {
-    //objetPersistence.Down();
+    //
   }
   
   slider.Update();
@@ -21,12 +26,26 @@ void inputUpdate()
 
 void touchStarted()
 {
-  slider.CheckIfTouching();
+  target = new PVector(width/2, height/2);
+  if(!slider.CheckIfTouching())
+  {
+    //print("not touching slider button");
+    settingTarget = true;
+  }
+  else
+  {
+    //print("touching slider button");  
+  }
 }
 
 
 void touchEnded() 
 {
-  objets.add(new Objet(mouseX, mouseY));
+  // if less than ten objets
+  if(settingTarget)
+  {
+    objets.add(new Objet(mouseX, mouseY, target));
+  }
+  settingTarget = false;
   slider.StopTouching();
 }

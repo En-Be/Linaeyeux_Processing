@@ -51,6 +51,6 @@ void draw()
   {
     o.Update();
   }
-  
   debugDisplay.Update();
+
 }

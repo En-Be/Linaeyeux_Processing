@@ -3,6 +3,7 @@ class Objet
   PVector position;
   PVector velocity;
   PVector acceleration;
+  PVector target;
   
   boolean colourChosen = false;
   color c;
@@ -11,11 +12,12 @@ class Objet
   int size = 20;
   boolean randomTarget;
   
-  Objet(int x, int y)
+  Objet(int x, int y, PVector t)
   {
     position = new PVector(x, y);
     velocity = new PVector(0,0);
     acceleration = new PVector(0,0);
+    target = new PVector(t.x, t.y);
     randomTarget = true;
   }
   
@@ -23,13 +25,14 @@ class Objet
   
   void Update()
   {
-    PVector mouse = new PVector(width/2, height/2);
-    mouse.sub(position);
-    mouse.setMag(0.5);
-    
+    //print("target x:y = " + target.x + ":" + target.y);
     if(!randomTarget)
     {
-      followTarget(mouse);
+      //print("this.target.x = " + target.x);
+      PVector targetPos = new PVector(target.x, target.y);
+      targetPos.sub(position);
+      targetPos.setMag(0.5);
+      followTarget(targetPos);
     }
     else
     {
@@ -55,9 +58,9 @@ class Objet
   
   // ----
   
-  void followTarget(PVector mouse)
+  void followTarget(PVector targetPos)
   {
-    acceleration = mouse;
+    acceleration = targetPos;
     if(!colourChosen)
     {
       c = color(random(255),random(255),random(255));

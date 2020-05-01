@@ -1,6 +1,7 @@
 class Slider
 {
   Button button = new Button();
+  
   int top;
   int bottom;
   
@@ -46,9 +47,9 @@ class Slider
   // ----
   
   
-  void CheckIfTouching()
+  boolean CheckIfTouching()
   {
-    button.CheckIfTouching();
+    return button.CheckIfTouching();
   }
   
   void StopTouching()

@@ -17,19 +17,12 @@ class Button
   {
     if(isBeingTouched)
     {
-      for(Objet o : objets)
-      {
-        o.randomTarget = false;
-      }
-      
+      ObjetTargetRandom(false);
       position.y = constrain(mouseY, 200, height - 200);
     }
     else
     {
-      for(Objet o : objets)
-      {
-        o.randomTarget = true;
-      }
+      ObjetTargetRandom(true);
     }
   }
   
@@ -43,15 +36,17 @@ class Button
   
   // ----
   
-  void CheckIfTouching()
+  boolean CheckIfTouching()
   {
     if(overCircle(int(position.x), int(position.y), size))
     {
       isBeingTouched = true;
+      return true;
     }
     else
     {
       isBeingTouched = false;
+      return false;
     }
   }
   

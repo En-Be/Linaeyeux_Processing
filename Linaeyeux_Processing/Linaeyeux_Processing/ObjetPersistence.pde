@@ -14,7 +14,6 @@ class ObjetPersistence
     
   void Update()
   {
-    //opacity = constrain(opacity, 0, 255);
     Display();
   }
   

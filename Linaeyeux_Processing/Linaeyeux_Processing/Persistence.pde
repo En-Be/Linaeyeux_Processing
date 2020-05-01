@@ -7,16 +7,8 @@ class Persistence
     
   }
   
-  void Up()
-  {
-    opacity--;
-  }
-  
-  void Down()
-  {
-    opacity++;
-  }
-  
+  // ----
+    
   void Update()
   {
     opacity = constrain(opacity, 0, 255);
@@ -28,5 +20,16 @@ class Persistence
     fill(0, opacity);
     rect(0, 0, width, height);
   }
+ 
+  // ----
   
+  void Up()
+  {
+    opacity--;
+  }
+  
+  void Down()
+  {
+    opacity++;
+  }
 }

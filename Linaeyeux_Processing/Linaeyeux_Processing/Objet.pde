@@ -19,6 +19,8 @@ class Objet
     randomTarget = true;
   }
   
+  // ----
+  
   void Update()
   {
     PVector mouse = new PVector(mouseX, mouseY);
@@ -43,6 +45,14 @@ class Objet
     Display();
     
   }
+  
+  void Display()
+  {
+    noStroke();
+    ellipse(position.x, position.y, size, size);
+  }
+  
+  // ----
   
   void followTarget(PVector mouse)
   {
@@ -75,11 +85,4 @@ class Objet
     if(position.y > height) position.y = 0;
     if(position.y < 0) position.y = height;
   }
-  
-  void Display()
-  {
-    noStroke();
-    ellipse(position.x, position.y, size, size);
-  }
-  
 }

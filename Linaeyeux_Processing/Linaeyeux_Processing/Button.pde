@@ -11,17 +11,7 @@ class Button
     size = 200;
   }
   
-  void CheckIfTouching()
-  {
-    if(overCircle(int(position.x), int(position.y), size))
-    {
-      isBeingTouched = true;
-    }
-    else
-    {
-      isBeingTouched = false;
-    }
-  }
+  // ----
   
   void Update()
   {
@@ -32,7 +22,7 @@ class Button
         o.randomTarget = false;
       }
       
-      position.y = mouseY;
+      position.y = constrain(mouseY, 200, height - 200);
     }
     else
     {
@@ -41,7 +31,6 @@ class Button
         o.randomTarget = true;
       }
     }
-    position.y = constrain(position.y, 200, height - 200);
   }
   
   void Display()
@@ -50,6 +39,20 @@ class Button
     strokeWeight(5);
     fill(0);
     circle(position.x, position.y, size);
+  }
+  
+  // ----
+  
+  void CheckIfTouching()
+  {
+    if(overCircle(int(position.x), int(position.y), size))
+    {
+      isBeingTouched = true;
+    }
+    else
+    {
+      isBeingTouched = false;
+    }
   }
   
   boolean overCircle(int x, int y, int diameter) 

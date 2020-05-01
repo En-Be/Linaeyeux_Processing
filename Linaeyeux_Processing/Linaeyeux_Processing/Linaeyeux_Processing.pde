@@ -17,7 +17,7 @@
 // ---- GLOBAL VARIABLES ----
 
 // Scales
-Persistence persistence = new Persistence();
+ObjetPersistence objetPersistence = new ObjetPersistence();
 
 // Slider - This has to be initialised in setup because it depends on screen size having been set
 Slider slider;
@@ -28,6 +28,7 @@ int objetCount = 0;
 
 // Debugging overlay
 DebugDisplay debugDisplay = new DebugDisplay();
+
 
 // ---- MAIN LOOP -----
 
@@ -41,7 +42,7 @@ void setup()
 
 void draw()
 {
-  persistence.Update();
+  objetPersistence.Update();
   
   inputUpdate();
   

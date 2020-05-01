@@ -6,11 +6,11 @@ void inputUpdate()
 {
   if(touches.length > 0)
   {
-    persistence.Up();
+    //objetPersistence.Up();
   }
   else
   {
-    persistence.Down();
+    //objetPersistence.Down();
   }
   
   slider.Update();

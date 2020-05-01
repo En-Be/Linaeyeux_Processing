@@ -17,8 +17,8 @@ class Slider
   void Update()
   {
     button.Update();
-    objetSize.ConvertToScale(Value());
-    objetSize.Update();
+    ObjetSizeLink();
+    ObjetPersistenceLink();
   }
   
   void Display()
@@ -29,7 +29,22 @@ class Slider
     button.Display(); 
   }
   
+  
+  // ---- SCALE LINKS
+  
+  void ObjetPersistenceLink()
+  {
+    objetPersistence.ConvertToScale(Value());
+    objetPersistence.Update();
+  }
+  void ObjetSizeLink()
+  {
+    objetSize.ConvertToScale(Value());
+    objetSize.Update();
+  }
+  
   // ----
+  
   
   void CheckIfTouching()
   {

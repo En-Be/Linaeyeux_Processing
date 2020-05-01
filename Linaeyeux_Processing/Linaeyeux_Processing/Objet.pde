@@ -36,10 +36,11 @@ class Objet
       wander();
     }
     
+    size = constrain(size, minSize, maxSize);
+
     velocity.add(acceleration);
     velocity.limit(10);
     position.add(velocity); 
-    size = constrain(size, minSize, maxSize);
 
     Edges();
     Display();

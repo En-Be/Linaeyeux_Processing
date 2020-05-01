@@ -4,6 +4,8 @@ class Slider
   int top;
   int bottom;
   
+  ObjetSize objetSize = new ObjetSize();
+  
   Slider()
   {
     top = 200;
@@ -15,7 +17,7 @@ class Slider
   void Update()
   {
     button.Update();
-    Value();
+    objetSize.ConvertToScale(Value());
   }
   
   void Display()

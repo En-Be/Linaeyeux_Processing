@@ -15,7 +15,6 @@ void inputUpdate()
   
   slider.Update();
   slider.Display();
-  //print(slider.Value());
 }
 
 // ----

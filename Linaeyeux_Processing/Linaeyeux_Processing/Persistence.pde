@@ -1,7 +1,10 @@
 class Persistence
 {
   int opacity = 255;
-
+  
+  int min = 0;
+  int max = 255;
+  
   Persistence()
   {
     
@@ -31,5 +34,11 @@ class Persistence
   void Down()
   {
     opacity++;
+  }
+  
+  int convertToScale(int percentage)
+  {
+    int ratio = max / 100;
+    return percentage * ratio;
   }
 }

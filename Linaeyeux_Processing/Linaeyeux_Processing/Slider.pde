@@ -62,7 +62,7 @@ class Slider
     float position = button.position.y - 200;
     int value = int((position/range) * 100);
     value = 100 - value; // Flip top and bottom
-    print("slider value = " + value);
+    //print("slider value = " + value);
     return value; 
   }
 }

@@ -23,7 +23,7 @@ class Objet
   
   void Update()
   {
-    PVector mouse = new PVector(mouseX, mouseY);
+    PVector mouse = new PVector(width/2, height/2);
     mouse.sub(position);
     mouse.setMag(0.5);
     

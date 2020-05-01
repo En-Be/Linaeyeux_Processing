@@ -39,9 +39,9 @@ class ObjetPersistence
   void ConvertToScale(int percentage)
   {
     float range = (max - min) / 100.0;
-    print("range = " + range);
+    //print("range = " + range);
     int convertedValue = int((percentage * range) + min);
-    print("converted value = " + convertedValue);
+    //print("converted value = " + convertedValue);
     opacity = convertedValue;
   }
 }

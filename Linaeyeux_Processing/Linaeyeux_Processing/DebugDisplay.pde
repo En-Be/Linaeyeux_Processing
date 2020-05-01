@@ -1,28 +1,50 @@
 class DebugDisplay
 {
-  int frameRateYPos;
-
+  PVector frameRatePos;
+  PVector numberOfObjets;
+  int borderWidth = 50;
+  int UITextSize;
+  
   DebugDisplay()
   {
-    frameRateYPos = 0;
+    frameRatePos = new PVector(40, 40);
+    numberOfObjets = new PVector(width - 80, 40);
+    UITextSize = 30;
+
   }
   
   void Update()
-  {
-    frameRateYPos += 10;
-    if(frameRateYPos > height)
-    {
-      frameRateYPos = 0;
-    }
-    
+  { 
     Display();
   }
   
   void Display()
   {
-    textSize(40);
+    DrawBorder();
+    DrawFrameRate();
+    DrawNumberOfObjets();
+  }
+  
+  void DrawBorder()
+  {
     fill(255);
-    text(frameRate, 10, frameRateYPos);
-    text(objets.size(), 10, frameRateYPos + 50);
+    rect(0, 0, width, borderWidth);
+    rect(0, 0, borderWidth, height);
+    rect(width - borderWidth, 0, width, height); 
+    rect(0, height - borderWidth, width, height);
+  }
+  
+  void DrawFrameRate()
+  {
+    textSize(UITextSize);
+    fill(0);
+    text(frameRate, frameRatePos.x, frameRatePos.y);
+  }
+  
+  void DrawNumberOfObjets()
+  {
+    textSize(UITextSize);
+    fill(0);
+    text(objets.size(), numberOfObjets.x, numberOfObjets.y);
   }
 }

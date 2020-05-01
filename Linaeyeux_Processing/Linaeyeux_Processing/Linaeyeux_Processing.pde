@@ -27,7 +27,7 @@ ArrayList<Objet> objets = new ArrayList<Objet>();
 int objetCount = 0;
 
 // Debugging overlay
-DebugDisplay debugDisplay = new DebugDisplay();
+DebugDisplay debugDisplay;
 
 
 // ---- MAIN LOOP -----
@@ -37,6 +37,7 @@ void setup()
   orientation(PORTRAIT);
   fullScreen();
   frameRate(30);
+  debugDisplay = new DebugDisplay();
   slider = new Slider();
 }
 

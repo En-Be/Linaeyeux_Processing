@@ -1,42 +1,48 @@
-
-class Button
+class Toggle
 {
-  PVector position;
+  PVector position = new PVector();
   int size;
   boolean isBeingTouched = false;
+  boolean on = false;
   
-  Button(int xPos)
+  Toggle(PVector pos, int s)
   {
-    position = new PVector(xPos, height/2);
-    size = 150;
+    position = pos.copy();
+    size = s;
   }
+  
   
   // ----
   
+  
   void Update()
   {
-    if(isBeingTouched)
-    {
-      //ObjetTargetRandom(false);
-      position.y = constrain(mouseY, 200, height - 200);
-    }
-    else
-    {
-      //ObjetTargetRandom(true);
-    }
+    Display();  
   }
   
   void Display()
   {
+    noFill();
     stroke(255);
     strokeWeight(5);
-    noFill();
+    
     circle(position.x, position.y, size);
     circle(position.x, position.y, size);
 
   }
   
+  
   // ----
+  
+  void TurnOn()
+  {
+    on = true;
+  }
+  
+  void TurnOff()
+  {
+    on = false;
+  }
   
   boolean CheckIfTouching()
   {

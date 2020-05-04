@@ -10,7 +10,7 @@ void inputUpdate()
     if(!touchingButton)
     {
       target = new PVector(mouseX, mouseY);
-      SetObjetTarget(target);
+      objetTarget.SetObjetTarget(target);
     }
   }
   
@@ -26,6 +26,7 @@ void touchStarted()
 {
   target = new PVector(width/2, height/2);
   CheckIfTouchingAnyButtons();
+  CheckIfTouchingAnyToggles();
 }
 
 void touchEnded() 
@@ -40,7 +41,7 @@ void touchEnded()
 
 void CheckIfTouchingAnyButtons()
 {
-  if(!sliders.CheckIfTouching())
+  if(!sliders.CheckIfTouching() && !toggles.CheckIfTouching())
   {
     touchingButton = false;
   }
@@ -48,6 +49,11 @@ void CheckIfTouchingAnyButtons()
   {
     touchingButton = true; 
   }
+}
+
+void CheckIfTouchingAnyToggles()
+{
+  
 }
 
 void MakeOrDestroy()

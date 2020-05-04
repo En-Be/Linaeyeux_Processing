@@ -16,18 +16,19 @@
 
 // ---- GLOBAL VARIABLES ----
 
+
 // Scales
 ObjetPersistence objetPersistence = new ObjetPersistence();
-
-// Slider - This has to be initialised in setup because it depends on screen size having been set
-Sliders sliders;
+ObjetTarget objetTarget = new ObjetTarget();
 
 // Objets
 ArrayList<Objet> objets = new ArrayList<Objet>();
 int objetCount = 0;
 
-// Debugging overlay
+// UI and Debugging overlay
 DebugDisplay debugDisplay;
+ToggleGrid toggles;
+Sliders sliders;
 
 
 // ---- MAIN LOOP -----
@@ -39,18 +40,18 @@ void setup()
   frameRate(30);
   debugDisplay = new DebugDisplay();
   sliders = new Sliders();
+  toggles = new ToggleGrid();
 }
 
 void draw()
-{
-  objetPersistence.Update();
-  
+{ 
   inputUpdate();
   
   for(Objet o : objets)
   {
     o.Update();
   }
+  
   debugDisplay.Update();
-
+  toggles.Update();
 }

@@ -87,4 +87,37 @@ class Objet
     if(position.y > height) position.y = 0;
     if(position.y < 0) position.y = height;
   }
+  
+  boolean CheckIfTouching()
+  {
+    if(overCircle(int(position.x), int(position.y), size))
+    {
+      //isBeingTouched = true;
+      return true;
+    }
+    else
+    {
+      //isBeingTouched = false;
+      return false;
+    }
+  }
+  
+  boolean overCircle(int x, int y, int diameter) 
+  {
+    float disX = x - mouseX;
+    float disY = y - mouseY;
+    if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) 
+    {
+      return true;
+    }  
+    else 
+    {
+      return false;
+    }
+  }
+  
+  void Destroy()
+  {
+    objets.remove(this);
+  }
 }

@@ -41,11 +41,33 @@ void touchStarted()
 
 void touchEnded() 
 {
-  // if less than ten objets
+  boolean DestroyedAnObjet = false;
+  
+  for(int i = objets.size() -1; i >= 0; i--) // iterate backwards incase we delete any objets from the list
+  {
+    Objet o = objets.get(i);
+    
+    if(o.CheckIfTouching())
+    {
+      o.Destroy();
+      DestroyedAnObjet = true;
+    }
+  }
+  
+  if(!DestroyedAnObjet)
+  {
+    MakeObjet();
+  }
+  
+  settingTarget = false;
+  slider.StopTouching();
+}
+
+void MakeObjet()
+{
+  // if less than twelve objets
   if(settingTarget && objets.size() < 12)
   {
     objets.add(new Objet(mouseX, mouseY, target));
   }
-  settingTarget = false;
-  slider.StopTouching();
 }

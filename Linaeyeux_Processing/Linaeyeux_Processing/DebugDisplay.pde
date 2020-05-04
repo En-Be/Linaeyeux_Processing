@@ -40,8 +40,8 @@ class DebugDisplay
   {
     fill(0);
     noStroke();
-    circle(borderWidth/2, slider.button.position.y, iconSize);
-    circle(width - borderWidth/2, slider.button.position.y, iconSize);
+    circle(borderWidth/2, sliders.buttonLeft.position.y, iconSize);
+    circle(width - borderWidth/2, sliders.buttonRight.position.y, iconSize);
   }
   
   void DrawFrameRate()

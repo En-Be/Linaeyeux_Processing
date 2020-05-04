@@ -1,4 +1,4 @@
-boolean settingTarget;
+boolean touchingButton;
 PVector target;
 
 // ---- ANDROID INPUT ---
@@ -7,66 +7,78 @@ void inputUpdate()
 {
   if(touches.length > 0)
   {
-    if(settingTarget)
+    if(!touchingButton)
     {
       target = new PVector(mouseX, mouseY);
       SetObjetTarget(target);
     }
   }
-  else
-  {
-    //
-  }
   
-  slider.Update();
-  slider.Display();
+  sliders.Update();
+  sliders.Display();
 }
 
+
 // ----
+
 
 void touchStarted()
 {
   target = new PVector(width/2, height/2);
-  if(!slider.CheckIfTouching())
-  {
-    //print("not touching slider button");
-    settingTarget = true;
-  }
-  else
-  {
-    //print("touching slider button");  
-  }
+  CheckIfTouchingAnyButtons();
 }
-
 
 void touchEnded() 
 {
-  boolean DestroyedAnObjet = false;
-  
-  for(int i = objets.size() -1; i >= 0; i--) // iterate backwards incase we delete any objets from the list
+  MakeOrDestroy();
+  touchingButton = false;
+  sliders.StopTouching();
+}
+
+
+// ----
+
+void CheckIfTouchingAnyButtons()
+{
+  if(!sliders.CheckIfTouching())
   {
-    Objet o = objets.get(i);
-    
-    if(o.CheckIfTouching())
+    touchingButton = false;
+  }
+  else
+  {
+    touchingButton = true; 
+  }
+}
+
+void MakeOrDestroy()
+{
+  boolean DestroyedAnObjet = false;
+  print("touching a button = " + touchingButton);
+  
+  if(!touchingButton)
+  {
+    for(int i = objets.size() -1; i >= 0; i--) // iterate backwards incase we delete any objets from the list
     {
-      o.Destroy();
-      DestroyedAnObjet = true;
+      Objet o = objets.get(i);
+      
+      if(o.CheckIfTouching())
+      {
+        o.Destroy();
+        DestroyedAnObjet = true;
+      }
+    }
+      
+    if(!DestroyedAnObjet)
+    {
+      MakeObjet();
     }
   }
-  
-  if(!DestroyedAnObjet)
-  {
-    MakeObjet();
-  }
-  
-  settingTarget = false;
-  slider.StopTouching();
 }
 
 void MakeObjet()
 {
   // if less than twelve objets
-  if(settingTarget && objets.size() < 12)
+  if(!touchingButton && objets.size() < 12)
   {
     objets.add(new Objet(mouseX, mouseY, target));
   }

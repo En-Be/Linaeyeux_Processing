@@ -20,7 +20,7 @@
 ObjetPersistence objetPersistence = new ObjetPersistence();
 
 // Slider - This has to be initialised in setup because it depends on screen size having been set
-Slider slider;
+Sliders sliders;
 
 // Objets
 ArrayList<Objet> objets = new ArrayList<Objet>();
@@ -38,7 +38,7 @@ void setup()
   fullScreen();
   frameRate(30);
   debugDisplay = new DebugDisplay();
-  slider = new Slider();
+  sliders = new Sliders();
 }
 
 void draw()

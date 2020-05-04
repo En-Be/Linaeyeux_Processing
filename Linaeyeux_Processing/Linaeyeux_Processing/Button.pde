@@ -5,10 +5,10 @@ class Button
   int size;
   boolean isBeingTouched = false;
   
-  Button()
+  Button(int xPos)
   {
-    position = new PVector(width/2, height/2);
-    size = 200;
+    position = new PVector(xPos, height/2);
+    size = 150;
   }
   
   // ----
@@ -30,7 +30,7 @@ class Button
   {
     stroke(255);
     strokeWeight(5);
-    fill(0);
+    noFill();
     circle(position.x, position.y, size);
   }
   

@@ -2,8 +2,8 @@ class Sliders
 { 
   int top;
   int bottom;
-  int leftPos = width/4;
-  int rightPos = width - width/4;
+  int leftPos = width/8;
+  int rightPos = width - width/8;
   Button buttonLeft = new Button(leftPos);
   Button buttonRight = new Button(rightPos);
   
@@ -15,7 +15,9 @@ class Sliders
     bottom = height - 200;
   }
   
+  
   // ----
+  
   
   void Update()
   {
@@ -29,8 +31,14 @@ class Sliders
   {
     stroke(255);
     strokeWeight(5);
-    line(leftPos, top, leftPos, bottom);
-    line(rightPos, top, rightPos, bottom);
+    
+    line(leftPos, top, leftPos, buttonLeft.position.y - buttonLeft.size/2);
+    line(leftPos, buttonLeft.position.y + buttonLeft.size/2, leftPos, bottom);
+
+    
+    line(rightPos, top, rightPos, buttonRight.position.y - buttonRight.size/2);
+    line(rightPos, buttonRight.position.y + buttonRight.size/2, rightPos, bottom);
+
 
     buttonLeft.Display();
     buttonRight.Display();
@@ -38,6 +46,7 @@ class Sliders
   
   
   // ---- SCALE LINKS
+  
   
   void ObjetPersistenceLink()
   {
@@ -49,6 +58,7 @@ class Sliders
     objetSize.ConvertToScale(Value('R'));
     objetSize.Update();
   }
+  
   
   // ----
   

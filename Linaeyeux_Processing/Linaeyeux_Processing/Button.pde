@@ -32,6 +32,8 @@ class Button
     strokeWeight(5);
     noFill();
     circle(position.x, position.y, size);
+    circle(position.x, position.y, size);
+
   }
   
   // ----

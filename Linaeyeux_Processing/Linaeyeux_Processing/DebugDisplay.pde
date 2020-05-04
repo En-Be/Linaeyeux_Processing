@@ -24,7 +24,7 @@ class DebugDisplay
     DrawBorder();
     DrawFrameRate();
     DrawNumberOfObjets();
-    DrawButtonPosition();
+    DrawButtonPositions();
   }
   
   void DrawBorder()
@@ -36,11 +36,17 @@ class DebugDisplay
     rect(0, height - borderWidth, width, height);
   }
   
-  void DrawButtonPosition()
+  void DrawButtonPositions()
   {
     fill(0);
     noStroke();
     circle(borderWidth/2, sliders.buttonLeft.position.y, iconSize);
+    circle(width - borderWidth/2, sliders.buttonLeft.position.y, iconSize);
+    
+    noFill();
+    stroke(0);
+    strokeWeight(5);
+    circle(borderWidth/2, sliders.buttonRight.position.y, iconSize);
     circle(width - borderWidth/2, sliders.buttonRight.position.y, iconSize);
   }
   

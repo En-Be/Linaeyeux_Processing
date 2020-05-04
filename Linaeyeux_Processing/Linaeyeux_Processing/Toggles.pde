@@ -65,7 +65,13 @@ class ToggleGrid
   
   boolean CheckIfTouching()
   {
-    print("checking");
+    for(Toggle t : toggles)
+    {
+      if(t.CheckIfTouching())
+      {
+        return true; 
+      }
+    }
     return false;
   }
 }

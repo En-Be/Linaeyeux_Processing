@@ -26,7 +26,6 @@ void touchStarted()
 {
   target = new PVector(width/2, height/2);
   CheckIfTouchingAnyButtons();
-  CheckIfTouchingAnyToggles();
 }
 
 void touchEnded() 
@@ -43,23 +42,20 @@ void CheckIfTouchingAnyButtons()
 {
   if(!sliders.CheckIfTouching() && !toggles.CheckIfTouching())
   {
+      print("not touching any buttons or toggles");
+
     touchingButton = false;
   }
   else
   {
+    print("touching a button or toggle");
     touchingButton = true; 
   }
-}
-
-void CheckIfTouchingAnyToggles()
-{
-  
 }
 
 void MakeOrDestroy()
 {
   boolean DestroyedAnObjet = false;
-  print("touching a button = " + touchingButton);
   
   if(!touchingButton)
   {

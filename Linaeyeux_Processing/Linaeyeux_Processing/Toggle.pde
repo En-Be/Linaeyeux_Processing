@@ -22,13 +22,19 @@ class Toggle
   
   void Display()
   {
-    noFill();
+    if(on)
+    {
+      fill(255);
+    }
+    else
+    {
+      noFill();
+    }
     stroke(255);
     strokeWeight(5);
     
     circle(position.x, position.y, size);
     circle(position.x, position.y, size);
-
   }
   
   

@@ -69,6 +69,11 @@ class ToggleGrid
     {
       if(t.CheckIfTouching())
       {
+        for(Toggle other : toggles)
+        {
+          other.TurnOff();
+        }
+        t.TurnOn();
         return true; 
       }
     }

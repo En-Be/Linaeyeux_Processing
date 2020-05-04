@@ -25,9 +25,7 @@ class Sliders
     buttonRight.Update();
     scales.SetLeftValue(Value('L'));
     scales.SetRightValue(Value('L'));
-    scales.Update();
-    //ObjetSizeLink();
-    //ObjetPersistenceLink();
+    Display();
   }
   
   void Display()
@@ -45,22 +43,6 @@ class Sliders
 
     buttonLeft.Display();
     buttonRight.Display();
-  }
-  
-  
-  // ---- SCALE LINKS
-  
-  
-  void ObjetPersistenceLink()
-  {
-    //objetPersistence.ConvertToScale(Value('L'));
-    //objetPersistence.Update();
-  }
-  
-  void ObjetSizeLink()
-  {
-    objetSize.ConvertToScale(Value('R'));
-    objetSize.Update();
   }
   
   
@@ -100,7 +82,12 @@ class Sliders
     }
     
     int value = int((position/range) * 100);
-    value = 100 - value; // Flip top and bottom
+    //value = 100 - value; // Flip top and bottom
     return value; 
+  }
+  
+  void ChangeActiveScale(int s)
+  {
+    buttonLeft.ConvertToScale(scales.GetButtonPos(s));
   }
 }

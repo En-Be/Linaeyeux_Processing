@@ -1,12 +1,12 @@
 class ObjetSize
 {
   int size;
-  int minSize = 20;
-  int maxSize = 1000;
+  int min = 20;
+  int max = 1000;
   
   ObjetSize()
   {
-    
+    size = 30;
   }
   
   void Update()
@@ -19,8 +19,20 @@ class ObjetSize
   
   void ConvertToScale(int percentage)
   {
-    float range = (maxSize - minSize) / 100.0;
-    int convertedValue = int((percentage * range) + minSize);
+    float range = (max - min) / 100.0;
+    int convertedValue = int((percentage * range) + min);
     size = convertedValue;
+  }
+  
+  int Value()
+  {
+    int range = max - min;
+    float position;
+    
+    position = size - min;
+
+    int value = int((position/range) * 100);
+    //value = 100 - value; // Flip top and bottom
+    return value;
   }
 }

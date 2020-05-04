@@ -1,6 +1,6 @@
 class ObjetPersistence
 {
-  int opacity = 255;
+  int opacity = 50;
   
   int min = 0;
   int max = 100;
@@ -17,7 +17,7 @@ class ObjetPersistence
   void Update()
   {
     Display();
-    print(opacity);
+    //print("opacity = " + opacity);
   }
   
   void Display()
@@ -33,9 +33,19 @@ class ObjetPersistence
   void ConvertToScale(int percentage)
   {
     float range = (max - min) / 100.0;
-    //print("range = " + range);
     int convertedValue = int((percentage * range) + min);
-    //print("converted value = " + convertedValue);
     opacity = convertedValue;
+  }
+  
+  int Value()
+  {
+    int range = max - min;
+    float position;
+    
+    position = opacity - min;
+
+    int value = int((position/range) * 100);
+    //value = 100 - value; // Flip top and bottom
+    return value;
   }
 }

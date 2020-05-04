@@ -5,6 +5,9 @@ class Button
   int size;
   boolean isBeingTouched = false;
   
+  int min = 200;
+  int max = height - 200;
+  
   Button(int xPos)
   {
     position = new PVector(xPos, height/2);
@@ -18,7 +21,7 @@ class Button
     if(isBeingTouched)
     {
       //ObjetTargetRandom(false);
-      position.y = constrain(mouseY, 200, height - 200);
+      position.y = constrain(mouseY, min, max);
     }
     else
     {
@@ -64,5 +67,12 @@ class Button
     {
       return false;
     }
+  }
+  
+  void ConvertToScale(int percentage)
+  {
+    float range = (max - min) / 100.0;
+    int convertedValue = int((percentage * range) + min);
+    position.y = convertedValue;
   }
 }

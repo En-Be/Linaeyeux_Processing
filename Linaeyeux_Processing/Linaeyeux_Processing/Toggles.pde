@@ -84,10 +84,14 @@ class ToggleGrid
         for(Toggle other : toggles)
         {
           other.TurnOff();
-          print("should turn off");
         }
+        
         t.TurnOn();
-        scales.activeScale = toggles.indexOf(t);
+        
+        scales.SetActive(toggles.indexOf(t));
+                
+        ui.ChangeActiveScale(toggles.indexOf(t));
+
         return true; 
       }
     }

@@ -1,13 +1,20 @@
-class DebugDisplay
+class UI
 {
+  
+  ToggleGrid toggles;
+  Sliders sliders;
+
   PVector frameRatePos;
   PVector numberOfObjets;
   int borderWidth = 50;
   int iconSize;
   int UITextSize;
   
-  DebugDisplay()
+  UI()
   {
+    sliders = new Sliders();
+    toggles = new ToggleGrid();
+  
     frameRatePos = new PVector(40, 40);
     numberOfObjets = new PVector(width - 80, 40);
     UITextSize = 30;
@@ -16,6 +23,9 @@ class DebugDisplay
   
   void Update()
   { 
+    sliders.Update();
+    toggles.Update();
+    
     Display();
   }
   
@@ -62,5 +72,10 @@ class DebugDisplay
     textSize(UITextSize);
     fill(0);
     text(objets.size(), numberOfObjets.x, numberOfObjets.y);
+  }
+  
+  void ChangeActiveScale(int s)
+  {
+    sliders.ChangeActiveScale(s);
   }
 }

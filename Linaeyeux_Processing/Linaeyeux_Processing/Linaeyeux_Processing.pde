@@ -25,9 +25,9 @@ ArrayList<Objet> objets = new ArrayList<Objet>();
 int objetCount = 0;
 
 // UI and Debugging overlay
-DebugDisplay debugDisplay;
-ToggleGrid toggles;
-Sliders sliders;
+UI ui;
+//ToggleGrid toggles;
+//Sliders sliders;
 
 
 // ---- MAIN LOOP -----
@@ -37,20 +37,19 @@ void setup()
   orientation(PORTRAIT);
   fullScreen();
   frameRate(30);
-  debugDisplay = new DebugDisplay();
-  sliders = new Sliders();
-  toggles = new ToggleGrid();
+  ui = new UI();
 }
 
 void draw()
 { 
   inputUpdate();
   
+  scales.Update();
+  
   for(Objet o : objets)
   {
     o.Update();
   }
   
-  debugDisplay.Update();
-  toggles.Update();
+  ui.Update();
 }

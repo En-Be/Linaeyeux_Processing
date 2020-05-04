@@ -2,7 +2,6 @@ class Toggle
 {
   PVector position = new PVector();
   int size;
-  boolean isBeingTouched = false;
   boolean on = false;
   
   Toggle(PVector pos, int s)
@@ -54,12 +53,10 @@ class Toggle
   {
     if(overCircle(int(position.x), int(position.y), size))
     {
-      isBeingTouched = true;
       return true;
     }
     else
     {
-      isBeingTouched = false;
       return false;
     }
   }

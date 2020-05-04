@@ -1,7 +1,7 @@
 boolean touchingButton;
 PVector target;
 
-// ---- ANDROID INPUT ---
+// ---- ANDROID INPUT --- // CONVERT TO TOUCHES
 
 void inputUpdate()
 {
@@ -13,9 +13,7 @@ void inputUpdate()
       //objetTarget.SetObjetTarget(target);
     }
   }
-  
-  sliders.Update();
-  sliders.Display();
+
 }
 
 
@@ -32,7 +30,7 @@ void touchEnded()
 {
   MakeOrDestroy();
   touchingButton = false;
-  sliders.StopTouching();
+  ui.sliders.StopTouching();
 }
 
 
@@ -40,14 +38,12 @@ void touchEnded()
 
 void CheckIfTouchingAnyButtons()
 {
-  if(!sliders.CheckIfTouching() && !toggles.CheckIfTouching())
+  if(!ui.sliders.CheckIfTouching() && !ui.toggles.CheckIfTouching())
   {
-    //print("not touching any buttons or toggles");
     touchingButton = false;
   }
   else
   {
-    //print("touching a button or toggle");
     touchingButton = true; 
   }
 }

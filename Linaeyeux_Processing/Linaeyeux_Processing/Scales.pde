@@ -20,8 +20,11 @@ class Scales
   
   void Update()
   {
-    print(activeScale + " = " + leftValue);
+    //print(activeScale + " = " + leftValue);
+    
     objetPersistence.Update();
+    objetSize.Update();
+
     Switch();
   }
   
@@ -30,14 +33,13 @@ class Scales
     switch(activeScale) 
     {
       case 0: 
-        println("first scale active");
+        //println("first scale active");
         objetPersistence.ConvertToScale(leftValue);
-        objetPersistence.Update();
+
         break;
       case 1: 
-        println("second scale active");
+        //println("second scale active");
         objetSize.ConvertToScale(leftValue);
-        objetSize.Update();
         break;
     }
   }
@@ -50,5 +52,23 @@ class Scales
   void SetRightValue(int v)
   {
     rightValue = v;
+  }
+  
+  void SetActive(int s)
+  {
+    activeScale = s;
+  }
+  
+  int GetButtonPos(int s)
+  {
+    switch(s)
+    {
+      case 0:
+        return objetPersistence.Value();
+      case 1:
+        return objetSize.Value();
+      default:
+         return 50;
+    }
   }
 }

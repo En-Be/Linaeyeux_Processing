@@ -42,13 +42,12 @@ void CheckIfTouchingAnyButtons()
 {
   if(!sliders.CheckIfTouching() && !toggles.CheckIfTouching())
   {
-      print("not touching any buttons or toggles");
-
+    //print("not touching any buttons or toggles");
     touchingButton = false;
   }
   else
   {
-    print("touching a button or toggle");
+    //print("touching a button or toggle");
     touchingButton = true; 
   }
 }

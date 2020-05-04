@@ -3,14 +3,16 @@ class ToggleGrid
   int xCount;
   int yCount;
   int iconSize;
+  int space;
   
   ArrayList<Toggle> toggles = new ArrayList<Toggle>();
 
   ToggleGrid()
   {
-    xCount = 4;
+    xCount = 8;
     yCount = 3;
     iconSize = 80;
+    space = 100;
     MakeGrid();
   }
   
@@ -32,15 +34,6 @@ class ToggleGrid
   
   // ----
   
-  int StartXPosition()
-  {
-    return (width/2 - xCount * iconSize) + iconSize;
-  }
-  
-  int StartYPosition()
-  {
-    return height - 200 - iconSize;
-  }
   
   void MakeGrid()
   {
@@ -54,13 +47,23 @@ class ToggleGrid
       {
         toggles.add(new Toggle(position, iconSize));
                         
-        position.y -= iconSize * 2;
+        position.y -= space;
 
       }
       
-      position.x += iconSize * 2;
+      position.x += space;
 
     }
+  }
+  
+  int StartXPosition()
+  {
+    return (width/2 - (xCount * (space / 2) - space / 2));
+  }
+  
+  int StartYPosition()
+  {
+    return height - 200;
   }
   
   boolean CheckIfTouching()
@@ -74,6 +77,7 @@ class ToggleGrid
           other.TurnOff();
         }
         t.TurnOn();
+        print(toggles.indexOf(t));
         return true; 
       }
     }

@@ -6,14 +6,17 @@ class ToggleGrid
   int space;
   
   ArrayList<Toggle> toggles = new ArrayList<Toggle>();
-
+  
+  int activeToggle;
+  
   ToggleGrid()
   {
-    xCount = 8;
-    yCount = 3;
+    xCount = 4;
+    yCount = 2;
     iconSize = 80;
     space = 100;
     MakeGrid();
+    StartingToggle();
   }
   
   void Update()
@@ -66,6 +69,12 @@ class ToggleGrid
     return height - 200;
   }
   
+  void StartingToggle()
+  {
+    Toggle t = toggles.get(0);
+    t.TurnOn();
+  }
+  
   boolean CheckIfTouching()
   {
     for(Toggle t : toggles)
@@ -75,9 +84,10 @@ class ToggleGrid
         for(Toggle other : toggles)
         {
           other.TurnOff();
+          print("should turn off");
         }
         t.TurnOn();
-        print(toggles.indexOf(t));
+        scales.activeScale = toggles.indexOf(t);
         return true; 
       }
     }

@@ -10,11 +10,14 @@ class ObjetPersistence
     
   }
   
+  
   // ----
+  
     
   void Update()
   {
     Display();
+    print(opacity);
   }
   
   void Display()
@@ -23,17 +26,9 @@ class ObjetPersistence
     rect(0, 0, width, height);
   }
  
+ 
   // ----
   
-  void Up()
-  {
-    opacity--;
-  }
-  
-  void Down()
-  {
-    opacity++;
-  }
   
   void ConvertToScale(int percentage)
   {

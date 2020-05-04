@@ -18,8 +18,7 @@
 
 
 // Scales
-ObjetPersistence objetPersistence = new ObjetPersistence();
-ObjetTarget objetTarget = new ObjetTarget();
+Scales scales = new Scales();
 
 // Objets
 ArrayList<Objet> objets = new ArrayList<Objet>();

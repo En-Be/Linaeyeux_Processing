@@ -23,8 +23,11 @@ class Sliders
   {
     buttonLeft.Update();
     buttonRight.Update();
-    ObjetSizeLink();
-    ObjetPersistenceLink();
+    scales.SetLeftValue(Value('L'));
+    scales.SetRightValue(Value('L'));
+    scales.Update();
+    //ObjetSizeLink();
+    //ObjetPersistenceLink();
   }
   
   void Display()
@@ -50,9 +53,10 @@ class Sliders
   
   void ObjetPersistenceLink()
   {
-    objetPersistence.ConvertToScale(Value('L'));
-    objetPersistence.Update();
+    //objetPersistence.ConvertToScale(Value('L'));
+    //objetPersistence.Update();
   }
+  
   void ObjetSizeLink()
   {
     objetSize.ConvertToScale(Value('R'));

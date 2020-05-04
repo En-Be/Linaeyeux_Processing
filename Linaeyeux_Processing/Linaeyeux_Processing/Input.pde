@@ -10,7 +10,7 @@ void inputUpdate()
     if(!touchingButton)
     {
       target = new PVector(mouseX, mouseY);
-      objetTarget.SetObjetTarget(target);
+      //objetTarget.SetObjetTarget(target);
     }
   }
   

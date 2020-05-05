@@ -24,12 +24,8 @@ class ObjetPersistence
   }
   
   void Display()
-  {
-    float r = Randomness();
-    float opR = opacity + r;
-    opR = constrain(opR, min, max);
-    
-    fill(0, opR);
+  { 
+    fill(0, AdjustedValue());
     rect(0, 0, width, height);
   }
  
@@ -66,5 +62,13 @@ class ObjetPersistence
     float r = 0;
     r = random(randomness * -1, randomness);
     return r;
+  }
+  
+  float AdjustedValue()
+  {
+    float r = Randomness();
+    float opR = opacity + r;
+    opR = constrain(opR, min, max);
+    return opR;
   }
 }

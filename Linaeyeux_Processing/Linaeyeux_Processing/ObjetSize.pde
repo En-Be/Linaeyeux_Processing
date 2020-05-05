@@ -9,7 +9,7 @@ class ObjetSize
   
   ObjetSize()
   {
-    size = 480;
+    size = 200;
   }
   
   void Update()
@@ -18,11 +18,8 @@ class ObjetSize
     randomness = constrain(randomness, 0, max);
 
     for(Objet o : objets)
-    {
-      float r = Randomness();
-      float siR = size + r;
-      siR = constrain(siR, min, max);
-      o.size = int(siR);
+    { 
+      o.size = int(AdjustedValue());
     }
   }
   
@@ -59,5 +56,13 @@ class ObjetSize
     float r = 0;
     r = random(randomness * -1, randomness);
     return r;
+  }
+  
+  float AdjustedValue()
+  {
+    float r = Randomness();
+    float siR = size + r;
+    siR = constrain(siR, min, max);
+    return siR;
   }
 }

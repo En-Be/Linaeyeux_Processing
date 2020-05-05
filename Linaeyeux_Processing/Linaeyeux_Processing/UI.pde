@@ -86,5 +86,8 @@ class UI
     textAlign(CENTER);
     fill(0);
     text(scales.Active(), activeScalePos.x, activeScalePos.y);
+    text(scales.ActiveValue(), activeScalePos.x - 400, activeScalePos.y);
+    text(scales.ActiveValueRandomness(), activeScalePos.x + 400, activeScalePos.y);
+
   }
 }

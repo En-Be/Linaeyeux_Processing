@@ -93,4 +93,30 @@ class Scales
         return("-");
     }
   }
+  
+  int ActiveValue()
+  {
+    switch(activeScale) 
+    {
+      case 0: 
+        return(objetPersistence.opacity);
+      case 1: 
+        return(objetSize.size);
+      default:
+        return(0);
+    }
+  }
+  
+  int ActiveValueRandomness()
+  {
+    switch(activeScale) 
+    {
+      case 0: 
+        return(objetPersistence.randomness);
+      case 1: 
+        return(objetSize.randomness);
+      default:
+        return(0);
+    }
+  }
 }

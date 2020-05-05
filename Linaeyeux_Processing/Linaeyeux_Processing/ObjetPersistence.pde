@@ -32,12 +32,15 @@ class ObjetPersistence
   
   void Up()
   {
-    
+    print("persistence up");
+    opacity -= 10;
   }
   
   void Down()
   {
-    
+    print("persistence down");
+    opacity += 10;
+
   }
   
   

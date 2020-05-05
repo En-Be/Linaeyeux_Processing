@@ -88,6 +88,6 @@ class Sliders
   
   void ChangeActiveScale(int s)
   {
-    buttonLeft.ConvertToScale(scales.GetButtonPos(s));
+    //buttonLeft.ConvertToScale(scales.GetButtonPos(s));
   }
 }

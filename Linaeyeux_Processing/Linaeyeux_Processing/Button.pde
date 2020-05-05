@@ -74,23 +74,25 @@ class Button
     }
   }
   
-  void ConvertToScale(int percentage)
-  {
-    float range = (max - min) / 100.0;
-    int convertedValue = int((percentage * range) + min);
-    position.y = convertedValue;
-  }
+  //void ConvertToScale(int percentage)
+  //{
+  //  float range = (max - min) / 100.0;
+  //  int convertedValue = int((percentage * range) + min);
+  //  position.y = convertedValue;
+  //}
   
   void CheckIncrement()
   {
     if(position.y < restPosition.y)
     {
       // send up or down to scales
-      print("incremented down");
+      print("incremented up");
+      scales.Up();
     }
     else
     {
-      print("incremented up");
+      print("incremented down");
+      scales.Down();
     }
   }
 }

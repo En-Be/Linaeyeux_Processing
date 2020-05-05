@@ -23,12 +23,14 @@ class ObjetSize
   
   void Up()
   {
-    
+    print("size up");
+    size += 10;
   }
   
   void Down()
   {
-    
+    print("size down");
+    size -= 10;
   }
   
   

@@ -40,7 +40,15 @@ class ObjetPersistence
   {
     print("persistence down");
     opacity += 1;
-
   }
   
+  void RandomUp()
+  {
+    print("persistence randomness up");
+  }
+  
+  void RandomDown()
+  {
+    print("persistence randomness down");
+  }
 }

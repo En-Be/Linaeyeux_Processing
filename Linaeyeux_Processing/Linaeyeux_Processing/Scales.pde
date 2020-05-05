@@ -50,9 +50,47 @@ class Scales
     }
   }
   
+  void RandomUp()
+  {
+    switch(activeScale) 
+    {
+      case 0: 
+        objetPersistence.RandomUp();
+        break;
+      case 1: 
+        objetSize.RandomUp();
+        break;
+    }
+  }
+  
+  void RandomDown()
+  {
+    switch(activeScale) 
+    {
+      case 0: 
+        objetPersistence.RandomDown();
+        break;
+      case 1: 
+        objetSize.RandomDown();
+        break;
+    }
+  }
+  
   void SetActive(int s)
   {
     activeScale = s;
   }
   
+  String Active()
+  {
+    switch(activeScale) 
+    {
+      case 0: 
+        return("persistence");
+      case 1: 
+        return("size");
+      default:
+        return("-");
+    }
+  }
 }

@@ -75,15 +75,40 @@ class Button
   
   void CheckIncrement()
   {
-    if(position.y < restPosition.y)
+    if(position.y < restPosition.y) // if moving up
     {
-      print("incremented up");
-      scales.Up();
+      if(IsRandomness()) // if right slider
+      {
+        scales.RandomUp();
+      }
+      else // if left slider
+      {
+        scales.Up();
+      }
+    }
+    else // if moving down
+    {
+      if(IsRandomness()) // if right slider
+      {
+        scales.RandomDown();
+      }
+      else // if left slider
+      {
+        scales.Down();
+      }
+    }
+  }
+  
+  boolean IsRandomness()
+  {
+    if(position.x < width/2)
+    {
+      return false;
     }
     else
     {
-      print("incremented down");
-      scales.Down();
+      return true; 
     }
   }
+  
 }

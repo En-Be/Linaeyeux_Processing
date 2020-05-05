@@ -35,4 +35,13 @@ class ObjetSize
     size -= 10;
   }
   
+  void RandomUp()
+  {
+    print("size randomness up");
+  }
+  
+  void RandomDown()
+  {
+    print("size randomness down");
+  }
 }

@@ -38,6 +38,7 @@ void setup()
   fullScreen();
   frameRate(30);
   ui = new UI();
+
 }
 
 void draw()

@@ -5,7 +5,9 @@ class UI
   Sliders sliders;
 
   PVector frameRatePos;
-  PVector numberOfObjets;
+  PVector numberOfObjetsPos;
+  PVector activeScalePos;
+  
   int borderWidth = 50;
   int iconSize;
   int UITextSize;
@@ -16,7 +18,8 @@ class UI
     toggles = new ToggleGrid();
   
     frameRatePos = new PVector(40, 40);
-    numberOfObjets = new PVector(width - 80, 40);
+    numberOfObjetsPos = new PVector(width - 50, 40);
+    activeScalePos = new PVector(width/2, height - 20);
     UITextSize = 30;
     iconSize = 25;
   }
@@ -35,6 +38,7 @@ class UI
     DrawFrameRate();
     DrawNumberOfObjets();
     DrawButtonPositions();
+    DrawActiveScale();
   }
   
   void DrawBorder()
@@ -63,6 +67,7 @@ class UI
   void DrawFrameRate()
   {
     textSize(UITextSize);
+    textAlign(LEFT);
     fill(0);
     text(frameRate, frameRatePos.x, frameRatePos.y);
   }
@@ -70,7 +75,16 @@ class UI
   void DrawNumberOfObjets()
   {
     textSize(UITextSize);
+    textAlign(RIGHT);
     fill(0);
-    text(objets.size(), numberOfObjets.x, numberOfObjets.y);
+    text(objets.size(), numberOfObjetsPos.x, numberOfObjetsPos.y);
+  }
+  
+  void DrawActiveScale()
+  {
+    textSize(UITextSize);
+    textAlign(CENTER);
+    fill(0);
+    text(scales.Active(), activeScalePos.x, activeScalePos.y);
   }
 }

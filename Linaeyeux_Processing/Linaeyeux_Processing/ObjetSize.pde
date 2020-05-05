@@ -6,7 +6,7 @@ class ObjetSize
   
   ObjetSize()
   {
-    size = 30;
+    size = 480;
   }
   
   void Update()
@@ -16,6 +16,24 @@ class ObjetSize
       o.size = size;
     }
   }
+  
+  
+  // ----
+  
+  
+  void Up()
+  {
+    
+  }
+  
+  void Down()
+  {
+    
+  }
+  
+  
+  // ----
+  
   
   void ConvertToScale(int percentage)
   {

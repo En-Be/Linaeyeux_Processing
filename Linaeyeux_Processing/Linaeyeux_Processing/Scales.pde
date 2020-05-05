@@ -22,10 +22,11 @@ class Scales
   {
     //print(activeScale + " = " + leftValue);
     
+    Switch();
+
     objetPersistence.Update();
     objetSize.Update();
 
-    Switch();
   }
   
   void Switch()
@@ -33,12 +34,12 @@ class Scales
     switch(activeScale) 
     {
       case 0: 
-        //println("first scale active");
+        println("first scale active");
         objetPersistence.ConvertToScale(leftValue);
 
         break;
       case 1: 
-        //println("second scale active");
+        println("second scale active");
         objetSize.ConvertToScale(leftValue);
         break;
     }

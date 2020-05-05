@@ -1,7 +1,9 @@
 
 class Button
 {
+  PVector pFrPosition;
   PVector position;
+  PVector restPosition;
   int size;
   boolean isBeingTouched = false;
   
@@ -10,7 +12,9 @@ class Button
   
   Button(int xPos)
   {
-    position = new PVector(xPos, height/2);
+    restPosition = new PVector(xPos, height/2);
+    position = restPosition.copy();
+    pFrPosition = position.copy();
     size = 150;
   }
   
@@ -22,10 +26,11 @@ class Button
     {
       //ObjetTargetRandom(false);
       position.y = constrain(mouseY, min, max);
+      CheckIncrement();
     }
     else
     {
-      //ObjetTargetRandom(true);
+      position.y = restPosition.y;
     }
   }
   
@@ -74,5 +79,18 @@ class Button
     float range = (max - min) / 100.0;
     int convertedValue = int((percentage * range) + min);
     position.y = convertedValue;
+  }
+  
+  void CheckIncrement()
+  {
+    if(position.y < restPosition.y)
+    {
+      // send up or down to scales
+      print("incremented down");
+    }
+    else
+    {
+      print("incremented up");
+    }
   }
 }

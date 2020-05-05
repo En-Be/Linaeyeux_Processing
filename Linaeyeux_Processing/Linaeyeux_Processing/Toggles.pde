@@ -88,10 +88,9 @@ class ToggleGrid
         
         t.TurnOn();
         
-        scales.SetActive(toggles.indexOf(t));
-                
-        ui.ChangeActiveScale(toggles.indexOf(t));
-
+        scales.SetActive(toggles.indexOf(t)); // add these to a queue to happen after draw in update?
+        ui.ChangeActiveScale(toggles.indexOf(t)); // add these to a queue to happen after draw in update?
+        
         return true; 
       }
     }

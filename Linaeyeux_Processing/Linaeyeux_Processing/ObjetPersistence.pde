@@ -30,6 +30,20 @@ class ObjetPersistence
   // ----
   
   
+  void Up()
+  {
+    
+  }
+  
+  void Down()
+  {
+    
+  }
+  
+  
+  // ----
+  
+  
   void ConvertToScale(int percentage)
   {
     float range = (max - min) / 100.0;

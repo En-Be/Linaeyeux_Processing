@@ -1,82 +1,117 @@
-boolean touchingButton;
-PVector target;
-
-// ---- ANDROID INPUT --- // CONVERT TO TOUCHES
-
-void inputUpdate()
+class Input
 {
-  if(touches.length > 0)
-  {
-    if(!touchingButton)
-    {
-      target = new PVector(mouseX, mouseY);
-      //objetTarget.SetObjetTarget(target);
-    }
-  }
-
-}
-
-
-// ----
-
-
-void touchStarted()
-{
-  target = new PVector(width/2, height/2);
-  CheckIfTouchingAnyButtons();
-}
-
-void touchEnded() 
-{
-  MakeOrDestroy();
-  touchingButton = false;
-  ui.sliders.StopTouching();
-}
-
-
-// ----
-
-void CheckIfTouchingAnyButtons()
-{
-  if(!ui.sliders.CheckIfTouching() && !ui.toggles.CheckIfTouching())
-  {
-    touchingButton = false;
-  }
-  else
-  {
-    touchingButton = true; 
-  }
-}
-
-void MakeOrDestroy()
-{
-  boolean DestroyedAnObjet = false;
+  boolean touchingButton;
+  PVector target;
   
-  if(!touchingButton)
+  int pFrTouches = 0;
+  
+  Input()
   {
-    for(int i = objets.size() -1; i >= 0; i--) // iterate backwards incase we delete any objets from the list
+    
+  }
+  
+  void Update()
+  {
+    if(touches.length > pFrTouches)
     {
-      Objet o = objets.get(i);
-      
-      if(o.CheckIfTouching())
+      //print("new touch started");
+      StartATouch();
+      pFrTouches = touches.length;
+    }
+    
+    if(touches.length < pFrTouches)
+    {
+      //print("a touch ended");
+      EndATouch();
+      pFrTouches = touches.length;
+  
+    }
+    
+    if(touches.length > 0)
+    {
+      if(!touchingButton)
       {
-        o.Destroy();
-        DestroyedAnObjet = true;
+        target = new PVector(mouseX, mouseY);
+        //objetTarget.SetObjetTarget(target);
       }
     }
-      
-    if(!DestroyedAnObjet)
+  
+  }
+  
+  
+  // ----
+  
+  void StartATouch()
+  {
+    target = new PVector(width/2, height/2);
+    CheckIfTouchingAnyButtons();
+  }
+  
+  void EndATouch()
+  {
+    MakeOrDestroy();
+    touchingButton = false;
+    ui.sliders.StopTouching();
+  }
+  
+  //void touchStarted()
+  //{
+  //  target = new PVector(width/2, height/2);
+  //  CheckIfTouchingAnyButtons();
+  //}
+  
+  //void touchEnded() 
+  //{
+  //  MakeOrDestroy();
+  //  touchingButton = false;
+  //  ui.sliders.StopTouching();
+  //}
+  
+  
+  // ----
+  
+  void CheckIfTouchingAnyButtons()
+  {
+    if(!ui.sliders.CheckIfTouching() && !ui.toggles.CheckIfTouching())
     {
-      MakeObjet();
+      touchingButton = false;
+    }
+    else
+    {
+      touchingButton = true; 
     }
   }
-}
-
-void MakeObjet()
-{
-  // if less than twelve objets
-  if(!touchingButton && objets.size() < 12)
+  
+  void MakeOrDestroy()
   {
-    objets.add(new Objet(mouseX, mouseY, target));
+    boolean DestroyedAnObjet = false;
+    
+    if(!touchingButton)
+    {
+      for(int i = objets.size() -1; i >= 0; i--) // iterate backwards incase we delete any objets from the list
+      {
+        Objet o = objets.get(i);
+        
+        if(o.CheckIfTouching())
+        {
+          o.Destroy();
+          DestroyedAnObjet = true;
+        }
+      }
+        
+      if(!DestroyedAnObjet)
+      {
+        MakeObjet();
+      }
+    }
+  }
+  
+  void MakeObjet()
+  {
+    // if less than twelve objets
+    if(!touchingButton && objets.size() < 12)
+    {
+      objets.add(new Objet(mouseX, mouseY, target));
+    }
   }
 }

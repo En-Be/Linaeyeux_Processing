@@ -16,6 +16,7 @@
 
 // ---- GLOBAL VARIABLES ----
 
+Input input = new Input();
 
 // Scales
 Scales scales = new Scales();
@@ -42,7 +43,7 @@ void setup()
 
 void draw()
 { 
-  inputUpdate();
+  input.Update();
   
   scales.Update();
   

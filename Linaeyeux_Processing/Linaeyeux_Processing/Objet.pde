@@ -5,8 +5,12 @@ class Objet
   PVector acceleration;
   PVector target;
   
-  boolean colourChosen = false;
-  color c;
+  //boolean colourChosen = false;
+  //color colour;
+  float hue = 0;
+  float saturation = 0;
+  float brightness = 100;
+  
   int size = 20;
   boolean randomTarget;
   
@@ -25,10 +29,10 @@ class Objet
   {
     if(!randomTarget)
     {
-      PVector targetPos = new PVector(target.x, target.y);
-      targetPos.sub(position);
-      targetPos.setMag(0.5);
-      followTarget(targetPos);
+      //PVector targetPos = new PVector(target.x, target.y);
+      //targetPos.sub(position);
+      //targetPos.setMag(0.5);
+      //followTarget(targetPos);
     }
     else
     {
@@ -47,30 +51,31 @@ class Objet
   void Display()
   {
     noStroke();
+    fill(hue,saturation,brightness);
     ellipse(position.x, position.y, size, size);
   }
   
   // ----
   
-  void followTarget(PVector targetPos)
-  {
-    acceleration = targetPos;
-    if(!colourChosen)
-    {
-      c = color(random(255),random(255),random(255));
-      fill(c);
-      colourChosen = true;
-    }
-    else
-    {
-      fill(c);
-    }
-  }
+  //void followTarget(PVector targetPos)
+  //{
+  //  acceleration = targetPos;
+  //  if(!colourChosen)
+  //  {
+  //    colour = color(random(255),random(255),random(255));
+  //    fill(colour);
+  //    colourChosen = true;
+  //  }
+  //  else
+  //  {
+  //    fill(hue, saturation, brightness);
+  //  }
+  //}
   
   void wander()
   {
     acceleration = PVector.random2D();
-    colourChosen = false;
+    //colourChosen = false;
     fill(255);
   }
   

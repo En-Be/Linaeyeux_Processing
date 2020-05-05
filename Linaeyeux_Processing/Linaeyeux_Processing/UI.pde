@@ -43,7 +43,7 @@ class UI
   
   void DrawBorder()
   {
-    fill(255);
+    fill(0, 0, 100, 100);
     rect(0, 0, width, borderWidth);
     rect(0, 0, borderWidth, height);
     rect(width - borderWidth, 0, width, height); 

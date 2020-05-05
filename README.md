@@ -107,18 +107,20 @@ One or two or three fingers
 Several scales available for sliding:
 
 - Paths and nodes
-- Random and ordered
-- Light and dark
+- Hue
+- Saturation
+- Value
 - Straight and curved
 - Cold and warm
-- Small and big
+- Size
 - Structured and free
 - Moving and still
 - Ephemeral and persistent
 - Soft and hard
-- Saturated and monochrome
 - Empty and full
 - Rigid and fluid
+- Idependent and alike
+- Value rigid and value drift
 
 All scales have an accompanying random scale
 

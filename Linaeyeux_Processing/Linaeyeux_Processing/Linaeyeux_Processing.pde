@@ -37,6 +37,7 @@ void setup()
   orientation(PORTRAIT);
   fullScreen();
   frameRate(30);
+  colorMode(HSB, 100);
   ui = new UI();
 
 }

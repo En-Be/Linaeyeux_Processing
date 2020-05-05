@@ -23,13 +23,13 @@ class Toggle
   {
     if(on)
     {
-      fill(255);
+      fill(0,0,100,100);
     }
     else
     {
       noFill();
     }
-    stroke(255);
+    stroke(0,0,100,100);
     strokeWeight(5);
     
     circle(position.x, position.y, size);

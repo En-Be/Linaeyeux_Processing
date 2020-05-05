@@ -35,7 +35,7 @@ class Button
   
   void Display()
   {
-    stroke(255);
+    stroke(0,0,100,100);
     strokeWeight(5);
     noFill();
     circle(position.x, position.y, size);

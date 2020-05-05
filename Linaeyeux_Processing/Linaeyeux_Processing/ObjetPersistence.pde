@@ -18,6 +18,7 @@ class ObjetPersistence
     
   void Update()
   {
+    
     opacity = constrain(opacity, min, max);
     randomness = constrain(randomness, 0, max);
     Display();
@@ -25,7 +26,7 @@ class ObjetPersistence
   
   void Display()
   { 
-    fill(0, AdjustedValue());
+    fill(0, 0, 0, AdjustedValue());
     rect(0, 0, width, height);
   }
  

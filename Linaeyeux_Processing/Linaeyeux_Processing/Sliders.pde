@@ -29,7 +29,7 @@ class Sliders
   
   void Display()
   {
-    stroke(255);
+    stroke(0,0,100,100);
     strokeWeight(5);
     
     line(leftPos, top, leftPos, buttonLeft.position.y - buttonLeft.size/2);

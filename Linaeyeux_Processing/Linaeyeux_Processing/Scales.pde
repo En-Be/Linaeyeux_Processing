@@ -1,10 +1,10 @@
 class Scales
 {
-  int leftValue;
-  int rightValue;
-  
+
   ObjetSize objetSize;
   ObjetPersistence objetPersistence;
+  ObjetSaturation objetSaturation;
+  ObjetHue objetHue;
   
   int activeScale;
   
@@ -12,16 +12,23 @@ class Scales
   {
     objetPersistence = new ObjetPersistence();
     objetSize = new ObjetSize();
+    objetSaturation = new ObjetSaturation();
+    objetHue = new ObjetHue();
     
     activeScale = 0;
-    leftValue = 50;
-    rightValue = 50;
   }
   
   void Update()
   {
     objetPersistence.Update();
     objetSize.Update();
+    objetSaturation.Update();
+    objetHue.Update();
+  }
+  
+  void SetActive(int s)
+  {
+    activeScale = s;
   }
   
   void Up()
@@ -33,6 +40,12 @@ class Scales
         break;
       case 1: 
         objetSize.Up();
+        break;
+      case 2:
+        objetSaturation.Up();
+        break;
+      case 3:
+        objetHue.Up();
         break;
     }
   }
@@ -47,6 +60,12 @@ class Scales
       case 1: 
         objetSize.Down();
         break;
+      case 2:
+        objetSaturation.Down();
+        break;
+      case 3:
+        objetHue.Down();
+        break;  
     }
   }
   
@@ -60,7 +79,13 @@ class Scales
       case 1: 
         objetSize.RandomUp();
         break;
-    }
+      case 2:
+        objetSaturation.RandomUp();
+        break;    
+      case 3:
+        objetHue.RandomUp();
+        break;
+      }
   }
   
   void RandomDown()
@@ -73,12 +98,13 @@ class Scales
       case 1: 
         objetSize.RandomDown();
         break;
-    }
-  }
-  
-  void SetActive(int s)
-  {
-    activeScale = s;
+      case 2:
+        objetSaturation.RandomDown();
+        break;    
+      case 3:
+        objetHue.RandomDown();
+        break;
+      }
   }
   
   String Active()
@@ -89,6 +115,10 @@ class Scales
         return("persistence");
       case 1: 
         return("size");
+      case 2:
+        return("saturation");
+      case 3:
+        return("hue");
       default:
         return("-");
     }
@@ -102,6 +132,10 @@ class Scales
         return(objetPersistence.opacity);
       case 1: 
         return(objetSize.size);
+      case 2:
+        return(objetSaturation.value);
+      case 3:
+        return int(objetHue.value);
       default:
         return(0);
     }
@@ -115,6 +149,10 @@ class Scales
         return(objetPersistence.randomness);
       case 1: 
         return(objetSize.randomness);
+      case 2:
+        return(objetSaturation.randomness);
+      case 3:
+        return(objetHue.randomness);
       default:
         return(0);
     }

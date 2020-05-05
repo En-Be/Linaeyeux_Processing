@@ -14,14 +14,12 @@ class Input
   {
     if(touches.length > pFrTouches)
     {
-      //print("new touch started");
       StartATouch();
       pFrTouches = touches.length;
     }
     
     if(touches.length < pFrTouches)
     {
-      //print("a touch ended");
       EndATouch();
       pFrTouches = touches.length;
   
@@ -32,7 +30,6 @@ class Input
       if(!touchingButton)
       {
         target = new PVector(mouseX, mouseY);
-        //objetTarget.SetObjetTarget(target);
       }
     }
   
@@ -53,19 +50,6 @@ class Input
     touchingButton = false;
     ui.sliders.StopTouching();
   }
-  
-  //void touchStarted()
-  //{
-  //  target = new PVector(width/2, height/2);
-  //  CheckIfTouchingAnyButtons();
-  //}
-  
-  //void touchEnded() 
-  //{
-  //  MakeOrDestroy();
-  //  touchingButton = false;
-  //  ui.sliders.StopTouching();
-  //}
   
   
   // ----

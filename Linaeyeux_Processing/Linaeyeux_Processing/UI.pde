@@ -73,9 +73,4 @@ class UI
     fill(0);
     text(objets.size(), numberOfObjets.x, numberOfObjets.y);
   }
-  
-  void ChangeActiveScale(int s)
-  {
-    sliders.ChangeActiveScale(s);
-  }
 }

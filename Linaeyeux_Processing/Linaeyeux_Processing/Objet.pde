@@ -7,8 +7,6 @@ class Objet
   
   boolean colourChosen = false;
   color c;
-  int minSize = 20;
-  int maxSize = 1000;
   int size = 20;
   boolean randomTarget;
   
@@ -25,10 +23,8 @@ class Objet
   
   void Update()
   {
-    //print("target x:y = " + target.x + ":" + target.y);
     if(!randomTarget)
     {
-      //print("this.target.x = " + target.x);
       PVector targetPos = new PVector(target.x, target.y);
       targetPos.sub(position);
       targetPos.setMag(0.5);
@@ -39,8 +35,6 @@ class Objet
       wander();
     }
     
-    size = constrain(size, minSize, maxSize);
-
     velocity.add(acceleration);
     velocity.limit(10);
     position.add(velocity); 
@@ -92,12 +86,10 @@ class Objet
   {
     if(overCircle(int(position.x), int(position.y), size))
     {
-      //isBeingTouched = true;
       return true;
     }
     else
     {
-      //isBeingTouched = false;
       return false;
     }
   }

@@ -27,8 +27,7 @@ int objetCount = 0;
 
 // UI and Debugging overlay
 UI ui;
-//ToggleGrid toggles;
-//Sliders sliders;
+
 
 
 // ---- MAIN LOOP -----

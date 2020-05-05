@@ -16,8 +16,8 @@ class ObjetPersistence
     
   void Update()
   {
+    opacity = constrain(opacity, min, max);
     Display();
-    //print("opacity = " + opacity);
   }
   
   void Display()
@@ -33,36 +33,14 @@ class ObjetPersistence
   void Up()
   {
     print("persistence up");
-    opacity -= 10;
+    opacity -= 1;
   }
   
   void Down()
   {
     print("persistence down");
-    opacity += 10;
+    opacity += 1;
 
   }
   
-  
-  // ----
-  
-  
-  void ConvertToScale(int percentage)
-  {
-    float range = (max - min) / 100.0;
-    int convertedValue = int((percentage * range) + min);
-    opacity = convertedValue;
-  }
-  
-  int Value()
-  {
-    int range = max - min;
-    float position;
-    
-    position = opacity - min;
-
-    int value = int((position/range) * 100);
-    //value = 100 - value; // Flip top and bottom
-    return value;
-  }
 }

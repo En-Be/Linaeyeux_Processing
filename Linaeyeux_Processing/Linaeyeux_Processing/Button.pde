@@ -24,7 +24,6 @@ class Button
   {
     if(isBeingTouched)
     {
-      //ObjetTargetRandom(false);
       position.y = constrain(mouseY, min, max);
       CheckIncrement();
     }
@@ -74,18 +73,10 @@ class Button
     }
   }
   
-  //void ConvertToScale(int percentage)
-  //{
-  //  float range = (max - min) / 100.0;
-  //  int convertedValue = int((percentage * range) + min);
-  //  position.y = convertedValue;
-  //}
-  
   void CheckIncrement()
   {
     if(position.y < restPosition.y)
     {
-      // send up or down to scales
       print("incremented up");
       scales.Up();
     }

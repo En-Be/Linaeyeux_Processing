@@ -23,8 +23,7 @@ class Sliders
   {
     buttonLeft.Update();
     buttonRight.Update();
-    scales.SetLeftValue(Value('L'));
-    scales.SetRightValue(Value('L'));
+
     Display();
   }
   
@@ -67,27 +66,4 @@ class Sliders
     buttonRight.isBeingTouched = false;
   }
   
-  int Value(char LorR)
-  {
-    int range = bottom - top;
-    float position;
-    
-    if(LorR == 'L')
-    {
-      position = buttonLeft.position.y - 200;
-    }
-    else
-    {
-      position = buttonRight.position.y - 200;
-    }
-    
-    int value = int((position/range) * 100);
-    //value = 100 - value; // Flip top and bottom
-    return value; 
-  }
-  
-  void ChangeActiveScale(int s)
-  {
-    //buttonLeft.ConvertToScale(scales.GetButtonPos(s));
-  }
 }

@@ -152,7 +152,7 @@ class Scales
       case 2:
         return(objetSaturation.randomness);
       case 3:
-        return(objetHue.randomness);
+        return int(objetHue.randomness);
       default:
         return(0);
     }

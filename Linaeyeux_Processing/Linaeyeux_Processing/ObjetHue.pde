@@ -4,7 +4,7 @@ class ObjetHue
   float value = 0;
   int min = 0;
   int max = 100;
-  int randomness = 0;
+  float randomness = 0;
   
   ObjetHue()
   {
@@ -30,12 +30,20 @@ class ObjetHue
   {
     print("hue up");
     value += 0.1;
+    if(value >= 100)
+    {
+      value = 0;
+    }
   }
   
   void Down()
   {
     print("hue down");
     value -= 0.1;
+    if(value <= 0.00)
+    {
+      value = 100;
+    }
   }
   
   void RandomUp()

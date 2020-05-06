@@ -129,7 +129,7 @@ class Scales
     switch(activeScale) 
     {
       case 0: 
-        return(objetPersistence.opacity);
+        return(objetPersistence.value);
       case 1: 
         return(objetSize.value);
       case 2:

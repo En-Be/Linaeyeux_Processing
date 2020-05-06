@@ -13,9 +13,8 @@ class Scale
   
   void Update()
   {
-    value = constrain(value, min, max);
-    randomness = constrain(randomness, 0, max);
-
+    Constraints();
+    
     for(Objet o : objets)
     { 
       SendValue(o);
@@ -47,7 +46,11 @@ class Scale
     return r;
   }
   
-  
+  void Constraints()
+  {
+    value = constrain(value, min, max);
+    randomness = constrain(randomness, 0, max);
+  }
   // ----
   
   

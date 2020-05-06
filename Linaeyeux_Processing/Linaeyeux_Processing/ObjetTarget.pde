@@ -1,5 +1,6 @@
 class ObjetTarget
 {
+  
   ObjetTarget()
   {
     
@@ -20,4 +21,5 @@ class ObjetTarget
         o.randomTarget = b;
       }
   }
+  
 }

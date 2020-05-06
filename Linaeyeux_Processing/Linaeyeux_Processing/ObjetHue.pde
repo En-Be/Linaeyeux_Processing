@@ -1,6 +1,6 @@
 class ObjetHue extends Scale
 {
-
+  
   ObjetHue()
   {
     label = "hue";
@@ -10,6 +10,7 @@ class ObjetHue extends Scale
   
   void SendValue(Objet o)
   {
-    o.hue = int(AdjustedValue());
+    o.hue = AdjustedValue();
   }
+  
 }

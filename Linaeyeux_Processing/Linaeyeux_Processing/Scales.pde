@@ -10,6 +10,7 @@ class Scales
     scalesList.add(new ObjetSize());
     scalesList.add(new ObjetSaturation());
     scalesList.add(new ObjetHue());
+    scalesList.add(new ObjetVelocity());
     
     activeScale = 0;
   }
@@ -22,44 +23,38 @@ class Scales
     }
   }
   
+  
+  // ---- SET THE ACTIVE SCALE AND ACTIVE SCALE VALUES
+  
+  
   void SetActive(int s)
   {
     activeScale = s;
   }
   
-  void Up()
+  void ChangeValue(float inc)
   {
+    print("changing value by " + inc);
     if (scalesList.size() >= (activeScale + 1))
     {
-      scalesList.get(activeScale).Up();
+      scalesList.get(activeScale).value += inc;
     }
   }
   
-  void Down()
+  void ChangeValueRandomness(float inc)
   {
+    print("changing value randomness by " + inc);
     if (scalesList.size() >= (activeScale + 1))
     {
-      scalesList.get(activeScale).Down();
+      scalesList.get(activeScale).randomness += inc;
     }
   }
   
-  void RandomUp()
-  {
-    if (scalesList.size() >= (activeScale + 1))
-    {
-      scalesList.get(activeScale).RandomUp();
-    }
-  }
   
-  void RandomDown()
-  {
-    if (scalesList.size() >= (activeScale + 1))
-    {
-      scalesList.get(activeScale).RandomDown();
-    }
-  }
+  // ---- GET INFORMATION FOR UI
   
-  String Active()
+  
+  String ActiveLabel()
   {
     if (scalesList.size() >= (activeScale + 1))
     {
@@ -71,7 +66,7 @@ class Scales
     }
   }
   
-  int ActiveValue()
+  float ActiveValue()
   {
     if (scalesList.size() >= (activeScale + 1))
     {
@@ -83,7 +78,7 @@ class Scales
     }
   }
   
-  int ActiveValueRandomness()
+  float ActiveValueRandomness()
   {
     if (scalesList.size() >= (activeScale + 1))
     {
@@ -94,4 +89,5 @@ class Scales
       return 0;
     }
   }
+  
 }

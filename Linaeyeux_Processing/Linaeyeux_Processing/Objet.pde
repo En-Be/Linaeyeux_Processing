@@ -2,6 +2,7 @@ class Objet
 {
   PVector position;
   PVector velocity;
+  float velocityLimit;
   PVector acceleration;
   PVector target;
   
@@ -11,7 +12,7 @@ class Objet
   float saturation = 0;
   float brightness = 100;
   
-  int size = 20;
+  float size = 20;
   boolean randomTarget;
   
   Objet(int x, int y, PVector t)
@@ -27,6 +28,7 @@ class Objet
   
   void Update()
   {
+
     if(!randomTarget)
     {
       //PVector targetPos = new PVector(target.x, target.y);
@@ -40,7 +42,7 @@ class Objet
     }
     
     velocity.add(acceleration);
-    velocity.limit(10);
+    velocity.limit(velocityLimit);
     position.add(velocity); 
 
     Edges();
@@ -89,7 +91,7 @@ class Objet
   
   boolean CheckIfTouching()
   {
-    if(overCircle(int(position.x), int(position.y), size))
+    if(overCircle(int(position.x), int(position.y), int(size)))
     {
       return true;
     }

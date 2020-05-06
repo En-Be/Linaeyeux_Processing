@@ -1,5 +1,6 @@
 class ObjetSaturation extends Scale
 { 
+  
   ObjetSaturation()
   {
     label = "saturation";
@@ -9,6 +10,7 @@ class ObjetSaturation extends Scale
   
   void SendValue(Objet o)
   {
-    o.saturation = int(AdjustedValue());
+    o.saturation = AdjustedValue();
   }
+  
 }

@@ -1,5 +1,6 @@
 class Toggle
 {
+  
   PVector position = new PVector();
   int size;
   boolean on = false;
@@ -74,4 +75,5 @@ class Toggle
       return false;
     }
   }
+  
 }

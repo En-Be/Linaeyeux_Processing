@@ -22,10 +22,11 @@ class Button
   
   void Update()
   {
+    
     if(isBeingTouched)
     {
       position.y = constrain(mouseY, min, max);
-      CheckIncrement();
+      SendIncrement(IncrementAmount());
     }
     else
     {
@@ -47,6 +48,7 @@ class Button
   
   boolean CheckIfTouching()
   {
+        
     if(overCircle(int(position.x), int(position.y), size))
     {
       isBeingTouched = true;
@@ -73,30 +75,68 @@ class Button
     }
   }
   
-  void CheckIncrement()
+  void SendIncrement(float inc)
   {
-    if(position.y < restPosition.y) // if moving up
+    if(!IsRandomness())
     {
-      if(IsRandomness()) // if right slider
-      {
-        scales.RandomUp();
-      }
-      else // if left slider
-      {
-        scales.Up();
-      }
+      scales.ChangeValue(inc);
     }
-    else // if moving down
+    else
     {
-      if(IsRandomness()) // if right slider
-      {
-        scales.RandomDown();
-      }
-      else // if left slider
-      {
-        scales.Down();
-      }
+      scales.ChangeValueRandomness(inc);
     }
+  }
+  
+  float IncrementAmount()
+  {
+    float f = position.y - restPosition.y;
+    float u = restPosition.y - min;
+    
+    boolean madePositive = false;
+    
+    f = norm(f, 0, u);
+    
+    if(f < 0)
+    {
+      madePositive = true;
+      f *= -1;
+    }
+    
+    if(f > 0.95)
+    {
+      f = 100;
+    }
+    else if(f > 0.7)
+    {
+      f = 50;
+    }
+    else if(f > 0.4)
+    {
+      f = 10;
+    }
+    else if(f > 0.2)
+    {
+      f = 1;
+    }
+    else if(f > 0.1)
+    {
+      f = 0.1;
+    }
+    else if(f > 0.025)
+    {
+      f = 0.01;
+    }
+    else
+    {
+      f = 0; 
+    }
+    
+    if(!madePositive)
+    {
+      f *= -1;
+    }
+    
+    return f; 
   }
   
   boolean IsRandomness()

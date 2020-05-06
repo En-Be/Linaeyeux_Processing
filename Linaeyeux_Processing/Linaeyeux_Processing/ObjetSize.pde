@@ -10,6 +10,7 @@ class ObjetSize extends Scale
   
   void SendValue(Objet o)
   {
-    o.size = int(AdjustedValue());
+    o.size = AdjustedValue();
   }
+  
 }

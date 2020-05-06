@@ -1,5 +1,6 @@
 class Sliders
-{ 
+{
+  
   int top;
   int bottom;
   int leftPos = width/8;

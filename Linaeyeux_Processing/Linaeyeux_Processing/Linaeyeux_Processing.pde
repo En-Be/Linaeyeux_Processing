@@ -52,6 +52,5 @@ void draw()
   {
     o.Update();
   }
-  
   ui.Update();
 }

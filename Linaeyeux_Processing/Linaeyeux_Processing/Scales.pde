@@ -1,29 +1,25 @@
 class Scales
 {
 
-  ObjetSize objetSize;
-  ObjetPersistence objetPersistence;
-  ObjetSaturation objetSaturation;
-  ObjetHue objetHue;
-  
+  ArrayList<Scale> scalesList = new ArrayList<Scale>();
   int activeScale;
   
   Scales()
   {
-    objetPersistence = new ObjetPersistence();
-    objetSize = new ObjetSize();
-    objetSaturation = new ObjetSaturation();
-    objetHue = new ObjetHue();
+    scalesList.add(new ObjetPersistence());
+    scalesList.add(new ObjetSize());
+    scalesList.add(new ObjetSaturation());
+    scalesList.add(new ObjetHue());
     
     activeScale = 0;
   }
   
   void Update()
-  {
-    objetPersistence.Update();
-    objetSize.Update();
-    objetSaturation.Update();
-    objetHue.Update();
+  { 
+    for(Scale s : scalesList)
+    {
+      s.Update();
+    }
   }
   
   void SetActive(int s)
@@ -33,78 +29,34 @@ class Scales
   
   void Up()
   {
-    switch(activeScale) 
+    if (scalesList.size() >= (activeScale + 1))
     {
-      case 0: 
-        objetPersistence.Up();
-        break;
-      case 1: 
-        objetSize.Up();
-        break;
-      case 2:
-        objetSaturation.Up();
-        break;
-      case 3:
-        objetHue.Up();
-        break;
+      scalesList.get(activeScale).Up();
     }
   }
   
   void Down()
   {
-    switch(activeScale) 
+    if (scalesList.size() >= (activeScale + 1))
     {
-      case 0: 
-        objetPersistence.Down();
-        break;
-      case 1: 
-        objetSize.Down();
-        break;
-      case 2:
-        objetSaturation.Down();
-        break;
-      case 3:
-        objetHue.Down();
-        break;  
+      scalesList.get(activeScale).Down();
     }
   }
   
   void RandomUp()
   {
-    switch(activeScale) 
+    if (scalesList.size() >= (activeScale + 1))
     {
-      case 0: 
-        objetPersistence.RandomUp();
-        break;
-      case 1: 
-        objetSize.RandomUp();
-        break;
-      case 2:
-        objetSaturation.RandomUp();
-        break;    
-      case 3:
-        objetHue.RandomUp();
-        break;
-      }
+      scalesList.get(activeScale).RandomUp();
+    }
   }
   
   void RandomDown()
   {
-    switch(activeScale) 
+    if (scalesList.size() >= (activeScale + 1))
     {
-      case 0: 
-        objetPersistence.RandomDown();
-        break;
-      case 1: 
-        objetSize.RandomDown();
-        break;
-      case 2:
-        objetSaturation.RandomDown();
-        break;    
-      case 3:
-        objetHue.RandomDown();
-        break;
-      }
+      scalesList.get(activeScale).RandomDown();
+    }
   }
   
   String Active()
@@ -126,35 +78,25 @@ class Scales
   
   int ActiveValue()
   {
-    switch(activeScale) 
+    if (scalesList.size() >= (activeScale + 1))
     {
-      case 0: 
-        return(objetPersistence.value);
-      case 1: 
-        return(objetSize.value);
-      case 2:
-        return(objetSaturation.value);
-      case 3:
-        return int(objetHue.value);
-      default:
-        return(0);
+      return scalesList.get(activeScale).value;
+    }
+    else
+    {
+      return 0;
     }
   }
   
   int ActiveValueRandomness()
   {
-    switch(activeScale) 
+    if (scalesList.size() >= (activeScale + 1))
     {
-      case 0: 
-        return(objetPersistence.randomness);
-      case 1: 
-        return(objetSize.randomness);
-      case 2:
-        return(objetSaturation.randomness);
-      case 3:
-        return int(objetHue.randomness);
-      default:
-        return(0);
+      return scalesList.get(activeScale).randomness;
+    }
+    else
+    {
+      return 0;
     }
   }
 }

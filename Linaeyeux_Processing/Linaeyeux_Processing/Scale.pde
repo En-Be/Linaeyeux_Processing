@@ -1,6 +1,6 @@
 class Scale
 {
-  //String label;
+  String label;
   int value = 0;
   int min;
   int max;

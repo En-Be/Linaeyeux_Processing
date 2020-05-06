@@ -3,6 +3,7 @@ class ObjetPersistence extends Scale
   
   ObjetPersistence()
   {
+    label = "ephemerality";
     min = 0;
     max = 100;
     value = max;

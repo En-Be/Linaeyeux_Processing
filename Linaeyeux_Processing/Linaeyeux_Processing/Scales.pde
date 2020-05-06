@@ -61,18 +61,13 @@ class Scales
   
   String Active()
   {
-    switch(activeScale) 
+    if (scalesList.size() >= (activeScale + 1))
     {
-      case 0: 
-        return("persistence");
-      case 1: 
-        return("size");
-      case 2:
-        return("saturation");
-      case 3:
-        return("hue");
-      default:
-        return("-");
+      return scalesList.get(activeScale).label;
+    }
+    else
+    {
+      return "-"; 
     }
   }
   

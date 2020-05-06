@@ -2,6 +2,7 @@ class ObjetSaturation extends Scale
 { 
   ObjetSaturation()
   {
+    label = "saturation";
     min = 0;
     max = 100;
   }

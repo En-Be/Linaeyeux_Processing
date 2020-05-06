@@ -3,6 +3,7 @@ class ObjetHue extends Scale
 
   ObjetHue()
   {
+    label = "hue";
     min = 0;
     max = 100;
   }

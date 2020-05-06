@@ -131,7 +131,7 @@ class Scales
       case 0: 
         return(objetPersistence.opacity);
       case 1: 
-        return(objetSize.size);
+        return(objetSize.value);
       case 2:
         return(objetSaturation.value);
       case 3:

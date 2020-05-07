@@ -17,7 +17,7 @@ class Objet
     position = new PVector(x, y);
     velocity = new PVector(0,0);
     acceleration = new PVector(0,0);
-    target = new PVector(width/2, height/2);
+    target = t;
   }
   
   // ----

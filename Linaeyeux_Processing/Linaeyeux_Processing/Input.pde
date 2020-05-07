@@ -30,6 +30,10 @@ class Input
       if(!touchingButton)
       {
         target = new PVector(mouseX, mouseY);
+        for(Objet o : objets)
+        {
+          o.target = target;
+        }
       }
     }
   

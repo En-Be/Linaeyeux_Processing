@@ -5,6 +5,7 @@ class Scale
   float value = 0;
   int min;
   int max;
+  //int randomMax;
   float randomness = 0;
   
   Scale()

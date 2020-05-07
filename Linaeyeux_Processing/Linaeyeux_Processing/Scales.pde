@@ -10,7 +10,7 @@ class Scales
     scalesList.add(new ObjetSize());
     scalesList.add(new ObjetSaturation());
     scalesList.add(new ObjetHue());
-    scalesList.add(new ObjetVelocity());
+    scalesList.add(new ObjetJourney());
     
     activeScale = 0;
   }

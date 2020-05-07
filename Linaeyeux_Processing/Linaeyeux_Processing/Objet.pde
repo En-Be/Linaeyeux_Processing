@@ -5,46 +5,30 @@ class Objet
   float velocityLimit;
   PVector acceleration;
   PVector target;
+  //PVector adjustedTarget;
   
-  //boolean colourChosen = false;
-  //color colour;
   float hue = 0;
   float saturation = 0;
   float brightness = 100;
   
   float size = 20;
-  boolean randomTarget;
   
   Objet(int x, int y, PVector t)
   {
     position = new PVector(x, y);
     velocity = new PVector(0,0);
     acceleration = new PVector(0,0);
-    target = new PVector(t.x, t.y);
-    randomTarget = true;
+    target = new PVector(width/2, height/2);
   }
   
   // ----
   
   void Update()
   {
-
-    if(!randomTarget)
-    {
-      //PVector targetPos = new PVector(target.x, target.y);
-      //targetPos.sub(position);
-      //targetPos.setMag(0.5);
-      //followTarget(targetPos);
-    }
-    else
-    {
-      wander();
-    }
+    //print("target = " + target.x + ":" + target.y);
+    //print("adjusted target = " + adjustedTarget.x + ":" + adjustedTarget.y);
     
-    velocity.add(acceleration);
-    velocity.limit(velocityLimit);
-    position.add(velocity); 
-
+    Accelerate();
     Edges();
     Display();
     
@@ -56,29 +40,19 @@ class Objet
     fill(hue,saturation,brightness);
     ellipse(position.x, position.y, size, size);
   }
-  
-  // ----
-  
-  //void followTarget(PVector targetPos)
-  //{
-  //  acceleration = targetPos;
-  //  if(!colourChosen)
-  //  {
-  //    colour = color(random(255),random(255),random(255));
-  //    fill(colour);
-  //    colourChosen = true;
-  //  }
-  //  else
-  //  {
-  //    fill(hue, saturation, brightness);
-  //  }
-  //}
-  
-  void wander()
+    
+  void Accelerate()
   {
-    acceleration = PVector.random2D();
-    //colourChosen = false;
-    fill(255);
+    //PVector targetPos = new PVector(adjustedTarget.x, adjustedTarget.y);
+    //targetPos.sub(position);
+    //targetPos.setMag(0.5);
+    //acceleration = targetPos;
+    //println("targetPos = " + targetPos);
+    
+    println("acceleration = " +   acceleration);
+    velocity.add(acceleration);
+    velocity.limit(velocityLimit);
+    position.add(velocity); 
   }
   
   void Edges()

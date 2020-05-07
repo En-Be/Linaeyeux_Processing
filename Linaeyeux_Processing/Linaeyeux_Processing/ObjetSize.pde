@@ -4,7 +4,7 @@ class ObjetSize extends Scale
   ObjetSize()
   {
     label = "size";
-    min = 20;
+    min = 10;
     max = 1000; 
   }
   

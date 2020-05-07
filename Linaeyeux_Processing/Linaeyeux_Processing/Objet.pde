@@ -5,7 +5,6 @@ class Objet
   float velocityLimit;
   PVector acceleration;
   PVector target;
-  //PVector adjustedTarget;
   
   float hue = 0;
   float saturation = 0;
@@ -25,9 +24,6 @@ class Objet
   
   void Update()
   {
-    //print("target = " + target.x + ":" + target.y);
-    //print("adjusted target = " + adjustedTarget.x + ":" + adjustedTarget.y);
-    
     Accelerate();
     Edges();
     Display();
@@ -43,13 +39,6 @@ class Objet
     
   void Accelerate()
   {
-    //PVector targetPos = new PVector(adjustedTarget.x, adjustedTarget.y);
-    //targetPos.sub(position);
-    //targetPos.setMag(0.5);
-    //acceleration = targetPos;
-    //println("targetPos = " + targetPos);
-    
-    println("acceleration = " +   acceleration);
     velocity.add(acceleration);
     velocity.limit(velocityLimit);
     position.add(velocity); 

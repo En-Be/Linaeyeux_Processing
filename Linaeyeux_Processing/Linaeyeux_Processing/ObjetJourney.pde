@@ -25,7 +25,6 @@ class ObjetJourney extends Scale
   {
 
     PVector tR = t.copy();
-    
     tR.x += (Randomness() * 10);
     tR.y += (Randomness() * 10);
     

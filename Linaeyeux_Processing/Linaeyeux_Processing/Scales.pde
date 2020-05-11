@@ -8,6 +8,7 @@ class Scales
   {
     scalesList.add(new ObjetPersistence());
     scalesList.add(new ObjetSize());
+    scalesList.add(new ObjetBrightness());
     scalesList.add(new ObjetSaturation());
     scalesList.add(new ObjetHue());
     scalesList.add(new ObjetJourney());

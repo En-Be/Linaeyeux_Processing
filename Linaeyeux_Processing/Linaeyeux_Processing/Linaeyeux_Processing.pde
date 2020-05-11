@@ -34,12 +34,11 @@ UI ui;
 
 void setup()
 {
-  orientation(PORTRAIT);
+  //orientation(PORTRAIT);
   fullScreen();
   frameRate(30);
   colorMode(HSB, 100);
   ui = new UI();
-
 }
 
 void draw()

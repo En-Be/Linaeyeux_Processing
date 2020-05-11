@@ -3,15 +3,17 @@ class Input
   boolean touchingButton;
   PVector target;
   
+
   int pFrTouches = 0;
   
   Input()
   {
-    
+
   }
   
   void Update()
   {
+   
     if(touches.length > pFrTouches)
     {
       StartATouch();
@@ -35,8 +37,8 @@ class Input
           o.target = target;
         }
       }
-    }
-  
+    } 
+    
   }
   
   

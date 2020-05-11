@@ -8,7 +8,7 @@ class Objet
   
   float hue = 0;
   float saturation = 0;
-  float brightness = 100;
+  float brightness = 0;
   
   float size = 20;
   

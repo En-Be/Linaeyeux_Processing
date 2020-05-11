@@ -11,7 +11,7 @@ class ObjetJourney extends Scale
   {
     label = "journey";
     min = 0;
-    max = 10;
+    max = 20;
     randomMax = 1000;
   }
   

@@ -3,10 +3,9 @@ class ObjetShape extends Scale
   ArrayList<PVector> circle = new ArrayList<PVector>();
   ArrayList<PVector> square = new ArrayList<PVector>();
 
-  ArrayList<PVector> AdjustedShape = new ArrayList<PVector>();
+  ArrayList<PVector> adjustedShape = new ArrayList<PVector>();
 
   float size;
-  float pSize;
   
   ObjetShape()
   {
@@ -14,20 +13,21 @@ class ObjetShape extends Scale
     min = 0;
     max = 100;
     size = 10;
-    pSize = 10;
-    MakeCircle();
-    MakeSquare();
+    randomnessMax = 1000;
+    MakeShape();
   }
   
   void SendValue(Objet o)
   {
-    o.shape = square;
+    size = o.size;
+    MakeShape();    
+    o.shape = adjustedShape;
   }
   
   void MakeCircle()
   {
     circle = new ArrayList<PVector>();
-    for (int angle = 0; angle < 360; angle += 2) {
+    for (int angle = 0; angle < 360; angle += 4) {
       // Note we are not starting from 0 in order to match the
       // path of a circle.  
       PVector v = PVector.fromAngle(radians(angle-135));
@@ -42,7 +42,7 @@ class ObjetShape extends Scale
   {
     square = new ArrayList<PVector>();
 
-    // 360 / 2, 180 / 4, 45 points per side
+    // 360 / 4, 60 / 4,  points per side
     
     PVector v = new PVector((size/2) * -1, (size/2) * -1);
     
@@ -75,14 +75,22 @@ class ObjetShape extends Scale
     }
   }
   
-  void SetValue(float f)
+  void MakeShape()
   {
-    size = f;
-    if(size != pSize)
+    MakeCircle();
+    MakeSquare();
+    MakeAdjustedShape();
+  }
+  
+  void MakeAdjustedShape()
+  {
+    adjustedShape = new ArrayList<PVector>();
+    for(PVector sV : square)
     {
-      MakeCircle();
-      MakeSquare();
-      pSize = size;
+      PVector aV = sV.copy();
+      aV.x += Randomness();
+      aV.y += Randomness();
+      adjustedShape.add(aV);
     }
   }
 }

@@ -9,12 +9,12 @@ class ObjetSize extends Scale
     max = 1500; 
     value = 5;
     shapeIndex = 6;
+    randomnessMax = max;
   }
   
   void SendValue(Objet o)
   {
     o.size = AdjustedValue();
-    scales.scalesList.get(shapeIndex).SetValue(AdjustedValue());
   }
   
 }

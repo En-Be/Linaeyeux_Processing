@@ -6,11 +6,13 @@ class Scale
   int min;
   int max;
   float randomness = 0;
+  float randomnessMax = 0;
   
   Scale()
   {
     min = 0;
     max = 100;
+    randomnessMax = 100;
   }
   
   void Update()
@@ -62,7 +64,7 @@ class Scale
   void Constraints()
   {
     value = constrain(value, min, max);
-    randomness = constrain(randomness, 0, max);
+    randomness = constrain(randomness, 0, randomnessMax);
   }
 
   

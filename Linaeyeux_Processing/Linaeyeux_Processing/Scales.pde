@@ -39,7 +39,7 @@ class Scales
     print("changing value by " + inc);
     if (scalesList.size() >= (activeScale + 1))
     {
-      scalesList.get(activeScale).value += inc;
+      scalesList.get(activeScale).SetValue(inc);
     }
   }
   
@@ -48,7 +48,7 @@ class Scales
     print("changing value randomness by " + inc);
     if (scalesList.size() >= (activeScale + 1))
     {
-      scalesList.get(activeScale).randomness += inc;
+      scalesList.get(activeScale).SetRandomness(inc);
     }
   }
   

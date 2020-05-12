@@ -5,7 +5,6 @@ class Scale
   float value = 0;
   int min;
   int max;
-  //int randomMax;
   float randomness = 0;
   
   Scale()
@@ -33,6 +32,17 @@ class Scale
   
   // ----
    
+  void SetValue(float f)
+  {
+    value += f;
+  }
+  
+  void SetRandomness(float f)
+  {
+    randomness += f;
+  }
+  
+  // ----
    
   float AdjustedValue()
   {

@@ -13,6 +13,7 @@ class Scales
     scalesList.add(new ObjetHue());
     scalesList.add(new ObjetJourney());
     scalesList.add(new ObjetShape());
+    scalesList.add(new ObjetFill());
     
     activeScale = 0;
   }

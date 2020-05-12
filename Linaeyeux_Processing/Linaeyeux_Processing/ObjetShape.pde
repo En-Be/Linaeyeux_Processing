@@ -36,6 +36,11 @@ class ObjetShape extends Scale
     }
   }
   
+  void MakeSquare()
+  {
+    // 360 / 2, 180 / 4, 45 points per side
+  }
+  
   void SetValue(float f)
   {
     size = f;

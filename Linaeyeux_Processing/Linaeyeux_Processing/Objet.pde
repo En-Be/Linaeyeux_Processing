@@ -9,7 +9,7 @@ class Objet
   float hue = 0;
   float saturation = 0;
   float brightness = 0;
-  
+  float opacity = 0;
   float size = 20;
   
   ArrayList<PVector> shape = new ArrayList<PVector>();
@@ -35,7 +35,9 @@ class Objet
   void Display()
   {
     noStroke();
-    fill(hue,saturation,brightness);
+    fill(hue,saturation,brightness,opacity);
+    stroke(hue,saturation,brightness);
+    strokeWeight(5);
     //ellipse(position.x, position.y, size, size);
     DrawShape();
   }
@@ -45,8 +47,6 @@ class Objet
     pushMatrix();
     translate(position.x, position.y);
     beginShape();
-    //noFill();
-    //stroke(hue,saturation,brightness);
     for (PVector v : shape) {
       vertex(v.x, v.y);
     }

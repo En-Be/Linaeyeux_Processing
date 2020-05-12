@@ -5,6 +5,7 @@ class ObjetBrightness extends Scale
     label = "brightness";
     min = 0;
     max = 100;
+    value = 100;
   }
   
   void SendValue(Objet o)

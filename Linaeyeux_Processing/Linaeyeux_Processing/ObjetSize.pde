@@ -5,7 +5,7 @@ class ObjetSize extends Scale
   {
     label = "size";
     min = 10;
-    max = 1000; 
+    max = 10500; 
   }
   
   void SendValue(Objet o)

@@ -12,6 +12,8 @@ class Objet
   
   float size = 20;
   
+  ArrayList<PVector> shape = new ArrayList<PVector>();
+
   Objet(int x, int y, PVector t)
   {
     position = new PVector(x, y);
@@ -34,9 +36,24 @@ class Objet
   {
     noStroke();
     fill(hue,saturation,brightness);
-    ellipse(position.x, position.y, size, size);
+    //ellipse(position.x, position.y, size, size);
+    DrawShape();
   }
-    
+  
+  void DrawShape()
+  {
+    pushMatrix();
+    translate(position.x, position.y);
+    beginShape();
+    //noFill();
+    //stroke(hue,saturation,brightness);
+    for (PVector v : shape) {
+      vertex(v.x, v.y);
+    }
+    endShape(CLOSE);
+    popMatrix();
+  }
+  
   void Accelerate()
   {
     velocity.add(acceleration);
@@ -82,4 +99,5 @@ class Objet
   {
     objets.remove(this);
   }
+  
 }

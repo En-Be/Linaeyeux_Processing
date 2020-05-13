@@ -37,7 +37,7 @@ class Scales
   
   void ChangeValue(float inc)
   {
-    print("changing value by " + inc);
+    //print("changing value by " + inc);
     if (scalesList.size() >= (activeScale + 1))
     {
       scalesList.get(activeScale).SetValue(inc);
@@ -46,7 +46,7 @@ class Scales
   
   void ChangeValueRandomness(float inc)
   {
-    print("changing value randomness by " + inc);
+    //print("changing value randomness by " + inc);
     if (scalesList.size() >= (activeScale + 1))
     {
       scalesList.get(activeScale).SetRandomness(inc);

@@ -11,8 +11,8 @@ class ObjetShape extends Scale
   ObjetShape()
   {
     label = "shape";
-    min = -100;
-    max = 100;
+    min = -1;
+    max = 1;
     size = 10;
     randomnessMax = 1000;
     MakeShape();
@@ -36,13 +36,9 @@ class ObjetShape extends Scale
   {
     circle = new ArrayList<PVector>();
     for (int angle = 0; angle < 360; angle += 4) {
-      // Note we are not starting from 0 in order to match the
-      // path of a circle.  
       PVector v = PVector.fromAngle(radians(angle-135));
       v.mult(size);
       circle.add(v);
-      // Let's fill out morph ArrayList with blank PVectors while we are at it
-      //morph.add(new PVector());
     }
   }
   
@@ -50,7 +46,7 @@ class ObjetShape extends Scale
   {
     square = new ArrayList<PVector>();
 
-    // 360 / 4, 60 / 4,  points per side
+    // 360 / 4, 60 / 4,  points per side == 23 or 22. 
     
     PVector v = new PVector((size/2) * -1, (size/2) * -1);
     

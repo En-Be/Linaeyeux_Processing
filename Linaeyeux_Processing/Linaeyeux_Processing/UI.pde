@@ -51,6 +51,7 @@ class UI
       stroke(0,0,100,100);
       circle(touches[t].x,touches[t].y, 200);
       text("t_id: " + touches[t].id, touches[t].x, touches[t].y - 225);
+      
       if(t < touches.length - 1)
       {
         line(touches[t].x, touches[t].y, touches[t + 1].x, touches[t + 1].y);

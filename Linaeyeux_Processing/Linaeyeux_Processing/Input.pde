@@ -2,9 +2,9 @@ class Input
 {
   boolean touchingButton;
   PVector target;
-  ArrayList<Touch> listedTouches = new ArrayList<Touch>();
-
+  
   int pFrTouches = 0;
+  int touchLength = 0;
   
   Input()
   {
@@ -13,7 +13,7 @@ class Input
   
   void Update()
   {
-   
+    //print(touches.length);
     if(touches.length > pFrTouches)
     {
       StartATouch();
@@ -29,7 +29,7 @@ class Input
     
     if(touches.length > 0)
     {
-      if(!touchingButton)
+      if(touches.length == 1 && !touchingButton && touchLength > 15)
       {
         target = new PVector(mouseX, mouseY);
         for(Objet o : objets)
@@ -37,7 +37,14 @@ class Input
           o.target = target;
         }
       }
-    } 
+      
+      touchLength++;
+      print(touchLength);
+    }
+    else
+    {
+      touchLength = 0; 
+    }
     
     Display();
   }
@@ -46,10 +53,11 @@ class Input
   {
     for(int t = 0; t < touches.length; t++)
     {
-      print("touch " + touches[t].id + " location = " + int(touches[t].x) + ":" + int(touches[t].y));
+      //print("touch " + touches[t].id + " location = " + int(touches[t].x) + ":" + int(touches[t].y));
     }
   }
   
+
   // ----
   
   
@@ -57,58 +65,17 @@ class Input
   {
     target = new PVector(width/2, height/2);
     CheckIfTouchingAnyButtons();
-    listedTouches.add(new Touch(IdentifyNewTouch()));
   }
-  
-  int IdentifyNewTouch()
-  {
-    int[] currentTouchIDs = new int[touches.length];
-    int newTouch = 10;
-    
-    for(int t = 0; t < touches.length; t++)
-    {
-      currentTouchIDs[t] = (touches[t].id);
-      print("touch id " + currentTouchIDs[t]);
-    }
-    
-    for(int ct: currentTouchIDs)
-    {
-      boolean listed = false;
-      
-      if(listedTouches.size() == 0)
-      {
-        newTouch = ct;
-      }
-      
-      for(Touch lt : listedTouches)
-      {
-        if(ct == lt.id)
-        {
-          listed = true;
-        }
-        
-        if(!listed)
-        {
-          newTouch = ct;
-        }
-      }
-    }
-        
-    print("new touch id = " + newTouch);
-    return newTouch;
-    
-  }
-  
   
   void EndATouch()
-  {
-    MakeOrDestroy();
+  {    
+    if(touchLength < 15)
+    {
+      MakeOrDestroy();
+    }
     touchingButton = false;
     ui.sliders.StopTouching();
   }
-  
-  
-  // ----
   
   void CheckIfTouchingAnyButtons()
   {

@@ -39,10 +39,19 @@ class Input
       }
     } 
     
+    Display();
   }
   
+  void Display()
+  {
+    for(int t = 0; t < touches.length; t++)
+    {
+      print("touch " + touches[t].id + " location = " + int(touches[t].x) + ":" + int(touches[t].y));
+    }
+  }
   
   // ----
+  
   
   void StartATouch()
   {

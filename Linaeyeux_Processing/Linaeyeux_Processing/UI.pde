@@ -34,11 +34,32 @@ class UI
   
   void Display()
   {
+    DrawTouches();
     DrawBorder();
     DrawFrameRate();
     DrawNumberOfObjets();
     DrawButtonPositions();
     DrawActiveScale();
+  }
+  
+  void DrawTouches()
+  {
+    for(int t = 0; t < touches.length; t++)
+    {
+      noFill();
+      strokeWeight(1);
+      stroke(0,0,100,100);
+      circle(touches[t].x,touches[t].y, 200);
+      text("t_id: " + touches[t].id, touches[t].x, touches[t].y - 225);
+      if(t < touches.length - 1)
+      {
+        line(touches[t].x, touches[t].y, touches[t + 1].x, touches[t + 1].y);
+      }
+      else if(t > 1)
+      {
+        line(touches[t].x, touches[t].y, touches[0].x, touches[0].y);
+      }
+    }
   }
   
   void DrawBorder()

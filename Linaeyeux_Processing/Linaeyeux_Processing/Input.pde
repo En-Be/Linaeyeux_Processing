@@ -21,10 +21,7 @@ class Input
       else
       {
         currentTouch.Update();
-      }
-      
-      UpdateTarget();
-      
+      }      
     }
     else
     {
@@ -44,18 +41,9 @@ class Input
   {
     target = new PVector(width/2, height/2);
     CheckIfTouchingAnyButtons();
-    currentTouch = new Touch();
-  }
-  
-  void UpdateTarget()
-  {
-    if(touches.length == 1 && !touchingButton && currentTouch.time > 15)
+    if(!touchingButton)
     {
-      target = new PVector(mouseX, mouseY);
-      for(Objet o : objets)
-      {
-        o.target = target;
-      }
+      currentTouch = new Touch();
     }
   }
   

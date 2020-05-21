@@ -19,6 +19,7 @@ class Touch
     if(touches.length == 1 && time > 15)
     {
       PVector target = new PVector(mouseX, mouseY);
+      input.target = target;
       for(Objet o : objets)
       {
         o.target = target;

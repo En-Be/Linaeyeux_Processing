@@ -7,7 +7,7 @@ class Input
   
   Input()
   {
-
+    target = new PVector(width/2, height/2);
   }
   
   void Update()
@@ -39,7 +39,6 @@ class Input
   
   void StartATouch()
   {
-    target = new PVector(width/2, height/2);
     CheckIfTouchingAnyButtons();
     if(!touchingButton)
     {

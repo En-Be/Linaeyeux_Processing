@@ -48,7 +48,7 @@ class Input
   
   void EndATouch()
   {    
-    if(currentTouch.time < 15)
+    if(currentTouch.time < 15 && currentTouch.oneFinger)
     {
       MakeOrDestroy();
     }

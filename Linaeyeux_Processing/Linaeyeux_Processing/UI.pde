@@ -87,7 +87,7 @@ class UI
       fill(100,0,100,100);
       noStroke();
       rectMode(CENTER);
-      square(input.currentTouch.middle.x, input.currentTouch.middle.y, 40);
+      square(input.currentTouch.CalculateMiddle().x, input.currentTouch.CalculateMiddle().y, 40);
     }
   }
   

@@ -3,8 +3,7 @@ class Touch
   int time;
   boolean oneFinger;
   
-  PVector middle = new PVector();
-  float startMiddle;
+  PVector startMiddle = new PVector();
   
   float touchDistance;
   float startDistance;
@@ -14,7 +13,6 @@ class Touch
   Touch()
   {
     oneFinger = true;
-    startMiddle = 0;
     distanceInterval = 200;
   }
   
@@ -29,6 +27,7 @@ class Touch
       if(oneFinger)
       {
         touchDistance = CalculateDistance();
+        startMiddle = CalculateMiddle();
       }
       oneFinger = false;
       UpdateMiddle();
@@ -52,8 +51,23 @@ class Touch
   
   void UpdateMiddle()
   {
-    middle.x = (touches[0].x + touches[1].x)/2;
-    middle.y = (touches[0].y + touches[1].y)/2;
+    PVector newMiddle = CalculateMiddle(); 
+    if(newMiddle.y < startMiddle.y - 100)
+    {
+      scales.ChangeValue(10);
+    }
+    else if(newMiddle.y > startMiddle.y + 100)
+    {
+      scales.ChangeValue(-10);
+    }
+  }
+  
+  PVector CalculateMiddle()
+  {
+    PVector newMiddle = new PVector();
+    newMiddle.x = (touches[0].x + touches[1].x)/2;
+    newMiddle.y = (touches[0].y + touches[1].y)/2;
+    return newMiddle;
   }
   
   void UpdateDistance()
@@ -76,6 +90,57 @@ class Touch
     PVector first = new PVector(touches[0].x,touches[0].y);
     PVector second = new PVector(touches[1].x,touches[1].y);
     return first.dist(second);
+  }
+ 
+  float IncrementAmount(PVector newMiddle)
+  {
+    float f = newMiddle.y - startMiddle.y;
+    
+    boolean madePositive = false;
+    
+    f = norm(f, 0, height);
+    
+    if(f < 0)
+    {
+      madePositive = true;
+      f *= -1;
+    }
+    
+    if(f > 0.95)
+    {
+      f = 100;
+    }
+    else if(f > 0.7)
+    {
+      f = 50;
+    }
+    else if(f > 0.4)
+    {
+      f = 10;
+    }
+    else if(f > 0.2)
+    {
+      f = 1;
+    }
+    else if(f > 0.1)
+    {
+      f = 0.1;
+    }
+    else if(f > 0.025)
+    {
+      f = 0.01;
+    }
+    else
+    {
+      f = 0; 
+    }
+    
+    if(!madePositive)
+    {
+      f *= -1;
+    }
+    
+    return f; 
   }
   
 }

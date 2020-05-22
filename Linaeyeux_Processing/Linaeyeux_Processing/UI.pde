@@ -141,8 +141,9 @@ class UI
   {
     textSize(UITextSize);
     textAlign(CENTER);
-    fill(0,0,0,opacity);
+    fill(0,0,0,100);
     text(scales.ActiveLabel(), activeScalePos.x, activeScalePos.y);
+    fill(0,0,0,opacity);
     text(scales.ActiveValue(), activeScalePos.x - 400, activeScalePos.y);
     text(scales.ActiveValueRandomness(), activeScalePos.x + 400, activeScalePos.y);
 

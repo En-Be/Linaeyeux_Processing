@@ -14,8 +14,8 @@ class UI
   
   UI()
   {
-    sliders = new Sliders();
-    toggles = new ToggleGrid();
+    //sliders = new Sliders();
+    //toggles = new ToggleGrid();
   
     frameRatePos = new PVector(40, 40);
     numberOfObjetsPos = new PVector(width - 50, 40);
@@ -26,8 +26,8 @@ class UI
   
   void Update()
   { 
-    sliders.Update();
-    toggles.Update();
+    //sliders.Update();
+    //toggles.Update();
     
     Display();
   }
@@ -39,7 +39,7 @@ class UI
     DrawBorder();
     DrawFrameRate();
     DrawNumberOfObjets();
-    DrawButtonPositions();
+    //DrawButtonPositions();
     DrawActiveScale();
   }
   

@@ -35,6 +35,22 @@ class Scales
     activeScale = s;
   }
   
+  void Up()
+  {
+    if(activeScale < scalesList.size())
+    {
+      activeScale += 1;
+    }
+  }
+  
+  void Down()
+  {
+    if(activeScale > 0)
+    {
+      activeScale -= 1;
+    }
+  }
+  
   void ChangeValue(float inc)
   {
     //print("changing value by " + inc);

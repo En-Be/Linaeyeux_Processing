@@ -39,7 +39,7 @@ class Input
   
   void StartATouch()
   {
-    CheckIfTouchingAnyButtons();
+    //CheckIfTouchingAnyButtons();
     if(!touchingButton)
     {
       currentTouch = new Touch();
@@ -53,7 +53,7 @@ class Input
       MakeOrDestroy();
     }
     touchingButton = false;
-    ui.sliders.StopTouching();
+    //ui.sliders.StopTouching();
     currentTouch = null;
   }
   

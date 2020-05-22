@@ -62,12 +62,12 @@ class Touch
     if(newDistance > touchDistance + distanceInterval)
     {
       touchDistance = newDistance;
-      print("distance has stepped up one");
+      scales.Up();
     }
     else if(newDistance < touchDistance - distanceInterval)
     {
       touchDistance = newDistance;
-      print("distance has stepped down one");
+      scales.Down();
     }
   }
   

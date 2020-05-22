@@ -14,7 +14,7 @@ class Scales
     scalesList.add(new ObjetJourney());
     scalesList.add(new ObjetShape());
     scalesList.add(new ObjetFill());
-    
+    scalesList.add(new UIOpacity());
     activeScale = 0;
   }
   
@@ -37,7 +37,7 @@ class Scales
   
   void Up()
   {
-    if(activeScale < scalesList.size())
+    if(activeScale < scalesList.size() - 1)
     {
       activeScale += 1;
     }

@@ -8,6 +8,7 @@ class UI
   PVector numberOfObjetsPos;
   PVector activeScalePos;
   
+  float opacity = 100;
   int borderWidth = 50;
   int iconSize;
   int UITextSize;
@@ -47,7 +48,7 @@ class UI
   {
     noFill();
     strokeWeight(1);
-    stroke(0,0,100,100);
+    stroke(0,0,100,opacity);
     if(touches.length > 0)
     {
       circle(touches[0].x,touches[0].y, 200);
@@ -65,9 +66,8 @@ class UI
     {
       noFill();
       strokeWeight(5);
-      stroke(0,0,100,100);
+      stroke(0,0,100,opacity);
       circle(touches[t].x,touches[t].y, 200);
-      text("t_id: " + touches[t].id, touches[t].x, touches[t].y - 225);
       
       if(t < touches.length - 1)
       {
@@ -86,11 +86,11 @@ class UI
     {
       if(touches.length > 2)
       {
-        fill(0,0,0,100);
+        fill(0,0,0,opacity);
         strokeWeight(5);
         circle(input.currentTouch.CalculateMiddle().x, input.currentTouch.CalculateMiddle().y, 80);
       }
-      fill(0,0,100,100);
+      fill(0,0,100,opacity);
       noStroke();
       circle(input.currentTouch.CalculateMiddle().x, input.currentTouch.CalculateMiddle().y, 40);
     }
@@ -125,7 +125,7 @@ class UI
   {
     textSize(UITextSize);
     textAlign(LEFT);
-    fill(0);
+    fill(0,0,0,opacity);
     text(frameRate, frameRatePos.x, frameRatePos.y);
   }
   
@@ -133,7 +133,7 @@ class UI
   {
     textSize(UITextSize);
     textAlign(RIGHT);
-    fill(0);
+    fill(0,0,0,opacity);
     text(objets.size(), numberOfObjetsPos.x, numberOfObjetsPos.y);
   }
   
@@ -141,7 +141,7 @@ class UI
   {
     textSize(UITextSize);
     textAlign(CENTER);
-    fill(0);
+    fill(0,0,0,opacity);
     text(scales.ActiveLabel(), activeScalePos.x, activeScalePos.y);
     text(scales.ActiveValue(), activeScalePos.x - 400, activeScalePos.y);
     text(scales.ActiveValueRandomness(), activeScalePos.x + 400, activeScalePos.y);

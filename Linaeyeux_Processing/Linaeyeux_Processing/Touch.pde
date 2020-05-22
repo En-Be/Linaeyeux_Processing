@@ -51,17 +51,8 @@ class Touch
   
   void UpdateMiddle()
   {
-    PVector newMiddle = CalculateMiddle(); 
-    if(newMiddle.y < startMiddle.y - 100)
-    {
-      scales.ChangeValue(10);
-    }
-    else if(newMiddle.y > startMiddle.y + 100)
-    {
-      scales.ChangeValue(-10);
-    }
+    scales.ChangeValue(IncrementAmount(CalculateMiddle()));
   }
-  
   PVector CalculateMiddle()
   {
     PVector newMiddle = new PVector();
@@ -98,7 +89,7 @@ class Touch
     
     boolean madePositive = false;
     
-    f = norm(f, 0, height);
+    f = norm(f, 0, height/2);
     
     if(f < 0)
     {

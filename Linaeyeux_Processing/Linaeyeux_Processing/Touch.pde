@@ -4,26 +4,35 @@ class Touch
   boolean oneFinger;
   
   PVector middle = new PVector();
-  float midX;
-  float midY;
+  float startMiddle;
+  
+  float touchDistance;
+  float startDistance;
+  
+  int distanceInterval;
   
   Touch()
   {
     oneFinger = true;
+    startMiddle = 0;
+    distanceInterval = 200;
   }
   
   void Update()
   {
     time++;
-    print("been touching for " + time + " frames");
+    //print("been touching for " + time + " frames");
     UpdateTarget();
     
     if(touches.length > 1)
     {
+      if(oneFinger)
+      {
+        touchDistance = CalculateDistance();
+      }
       oneFinger = false;
-      middle.x = (touches[0].x + touches[1].x)/2;
-      middle.y = (touches[0].y + touches[1].y)/2;
-      print(middle.x + "," + middle.y);
+      UpdateMiddle();
+      UpdateDistance();
     }
 
   }
@@ -39,6 +48,34 @@ class Touch
         o.target = target;
       }
     }
+  }
+  
+  void UpdateMiddle()
+  {
+    middle.x = (touches[0].x + touches[1].x)/2;
+    middle.y = (touches[0].y + touches[1].y)/2;
+  }
+  
+  void UpdateDistance()
+  {
+    float newDistance = CalculateDistance();
+    if(newDistance > touchDistance + distanceInterval)
+    {
+      touchDistance = newDistance;
+      print("distance has stepped up one");
+    }
+    else if(newDistance < touchDistance - distanceInterval)
+    {
+      touchDistance = newDistance;
+      print("distance has stepped down one");
+    }
+  }
+  
+  float CalculateDistance()
+  {
+    PVector first = new PVector(touches[0].x,touches[0].y);
+    PVector second = new PVector(touches[1].x,touches[1].y);
+    return first.dist(second);
   }
   
 }

@@ -34,7 +34,7 @@ class UI
   
   void Display()
   {
-    DrawTouches();
+    DrawFirstTwoTouches();
     DrawTouchesMiddle();
     DrawBorder();
     DrawFrameRate();
@@ -43,7 +43,23 @@ class UI
     DrawActiveScale();
   }
   
-  void DrawTouches()
+  void DrawFirstTwoTouches()
+  {
+    noFill();
+    strokeWeight(1);
+    stroke(0,0,100,100);
+    if(touches.length > 0)
+    {
+      circle(touches[0].x,touches[0].y, 200);
+    }
+    if(touches.length > 1)
+    {
+      circle(touches[1].x,touches[1].y, 200);
+      line(touches[0].x, touches[0].y, touches[1].x, touches[1].y);
+    }
+  }
+  
+  void DrawAllTouches()
   {
     for(int t = 0; t < touches.length; t++)
     {

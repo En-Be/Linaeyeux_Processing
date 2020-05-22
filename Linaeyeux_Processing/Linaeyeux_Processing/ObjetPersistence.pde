@@ -18,6 +18,7 @@ class ObjetPersistence extends Scale
   void Display()
   { 
     fill(0, 0, 0, AdjustedValue());
+    rectMode(CORNER);
     rect(0, 0, width, height);
   }
 

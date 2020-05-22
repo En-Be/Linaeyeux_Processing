@@ -57,6 +57,10 @@ class Input
     currentTouch = null;
   }
   
+  
+  // ----
+  
+  
   void CheckIfTouchingAnyButtons()
   {
     if(!ui.sliders.CheckIfTouching() && !ui.toggles.CheckIfTouching())

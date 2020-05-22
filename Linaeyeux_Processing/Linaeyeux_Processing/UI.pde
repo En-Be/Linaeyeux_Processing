@@ -35,6 +35,7 @@ class UI
   void Display()
   {
     DrawTouches();
+    DrawTouchesMiddle();
     DrawBorder();
     DrawFrameRate();
     DrawNumberOfObjets();
@@ -63,9 +64,21 @@ class UI
     }
   }
   
+  void DrawTouchesMiddle()
+  {
+    if(touches.length > 1)
+    {
+      fill(100,0,100,100);
+      noStroke();
+      rectMode(CENTER);
+      square(input.currentTouch.middle.x, input.currentTouch.middle.y, 40);
+    }
+  }
+  
   void DrawBorder()
   {
     fill(0, 0, 100, 100);
+    rectMode(CORNER);
     rect(0, 0, width, borderWidth);
     rect(0, 0, borderWidth, height);
     rect(width - borderWidth, 0, width, height); 

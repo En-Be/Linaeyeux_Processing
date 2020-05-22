@@ -51,7 +51,14 @@ class Touch
   
   void UpdateMiddle()
   {
-    scales.ChangeValue(IncrementAmount(CalculateMiddle()));
+    if(mostFingers == 2)
+    {
+      scales.ChangeValue(IncrementAmount(CalculateMiddle()));
+    }
+    else
+    {
+      scales.ChangeValueRandomness(IncrementAmount(CalculateMiddle()));
+    }
   }
   
   PVector CalculateMiddle()

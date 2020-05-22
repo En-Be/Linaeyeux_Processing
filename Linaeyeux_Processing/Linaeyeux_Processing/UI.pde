@@ -64,7 +64,7 @@ class UI
     for(int t = 0; t < touches.length; t++)
     {
       noFill();
-      strokeWeight(1);
+      strokeWeight(5);
       stroke(0,0,100,100);
       circle(touches[t].x,touches[t].y, 200);
       text("t_id: " + touches[t].id, touches[t].x, touches[t].y - 225);
@@ -84,10 +84,15 @@ class UI
   {
     if(touches.length > 1 )
     {
-      fill(100,0,100,100);
+      if(touches.length > 2)
+      {
+        fill(0,0,0,100);
+        strokeWeight(5);
+        circle(input.currentTouch.CalculateMiddle().x, input.currentTouch.CalculateMiddle().y, 80);
+      }
+      fill(0,0,100,100);
       noStroke();
-      rectMode(CENTER);
-      square(input.currentTouch.CalculateMiddle().x, input.currentTouch.CalculateMiddle().y, 40);
+      circle(input.currentTouch.CalculateMiddle().x, input.currentTouch.CalculateMiddle().y, 40);
     }
   }
   

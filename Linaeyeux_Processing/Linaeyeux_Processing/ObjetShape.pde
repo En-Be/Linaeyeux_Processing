@@ -15,6 +15,7 @@ class ObjetShape extends Scale
     max = 1;
     size = 10;
     randomnessMax = 1000;
+    value = 1;
     MakeShape();
   }
   

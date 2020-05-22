@@ -16,7 +16,7 @@
 
 // ---- GLOBAL VARIABLES ----
 
-Input input = new Input();
+Input input;
 
 // Scales
 Scales scales = new Scales();
@@ -38,6 +38,7 @@ void setup()
   fullScreen();
   frameRate(30);
   colorMode(HSB, 100);
+  input = new Input();
   ui = new UI();
 }
 

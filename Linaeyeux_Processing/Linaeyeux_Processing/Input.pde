@@ -12,6 +12,7 @@ class Input
   
   void Update()
   { 
+    print("target " + target.x + ":" + target.y);
     if(touches.length > 0)
     {
       if(currentTouch == null)

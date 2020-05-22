@@ -34,7 +34,7 @@ class UI
   
   void Display()
   {
-    DrawFirstTwoTouches();
+    DrawAllTouches();
     DrawTouchesMiddle();
     DrawBorder();
     DrawFrameRate();
@@ -82,7 +82,7 @@ class UI
   
   void DrawTouchesMiddle()
   {
-    if(touches.length > 1)
+    if(touches.length > 1 )
     {
       fill(100,0,100,100);
       noStroke();
@@ -94,6 +94,7 @@ class UI
   void DrawBorder()
   {
     fill(0, 0, 100, 100);
+    noStroke();
     rectMode(CORNER);
     rect(0, 0, width, borderWidth);
     rect(0, 0, borderWidth, height);

@@ -1,7 +1,7 @@
 class Touch
 {
   int time;
-  boolean oneFinger;
+  int mostFingers;
   
   PVector startMiddle = new PVector();
   
@@ -12,24 +12,27 @@ class Touch
   
   Touch()
   {
-    oneFinger = true;
+    mostFingers = 1;
     distanceInterval = 200;
   }
   
   void Update()
   {
     time++;
-    //print("been touching for " + time + " frames");
-    UpdateTarget();
     
-    if(touches.length > 1)
+    if(mostFingers == 1 && touches.length == 1 && time > 25)
     {
-      if(oneFinger)
-      {
-        touchDistance = CalculateDistance();
-        startMiddle = CalculateMiddle();
-      }
-      oneFinger = false;
+      UpdateTarget();
+    }
+    
+    if(touches.length > mostFingers)
+    {
+      touchDistance = CalculateDistance();
+      startMiddle = CalculateMiddle();
+      mostFingers = touches.length;
+    }
+    else if(touches.length == mostFingers && mostFingers > 1)
+    {
       UpdateMiddle();
       UpdateDistance();
     }
@@ -38,14 +41,11 @@ class Touch
   
   void UpdateTarget()
   {
-    if(oneFinger && time > 15)
+    PVector target = new PVector(mouseX, mouseY);
+    input.target = target;
+    for(Objet o : objets)
     {
-      PVector target = new PVector(mouseX, mouseY);
-      input.target = target;
-      for(Objet o : objets)
-      {
-        o.target = target;
-      }
+      o.target = target;
     }
   }
   
@@ -53,6 +53,7 @@ class Touch
   {
     scales.ChangeValue(IncrementAmount(CalculateMiddle()));
   }
+  
   PVector CalculateMiddle()
   {
     PVector newMiddle = new PVector();

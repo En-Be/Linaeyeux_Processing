@@ -12,7 +12,6 @@ class Input
   
   void Update()
   { 
-    print("target " + target.x + ":" + target.y);
     if(touches.length > 0)
     {
       if(currentTouch == null)
@@ -49,7 +48,7 @@ class Input
   
   void EndATouch()
   {    
-    if(currentTouch.time < 15 && currentTouch.oneFinger)
+    if(currentTouch.time < 15 && currentTouch.mostFingers == 1)
     {
       MakeOrDestroy();
     }

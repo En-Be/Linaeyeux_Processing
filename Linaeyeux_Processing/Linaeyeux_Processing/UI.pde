@@ -9,7 +9,7 @@ class UI
   PVector activeScalePos;
   
   float opacity = 100;
-  int borderWidth = 50;
+  int borderWidth = 30;
   int iconSize;
   int UITextSize;
   
@@ -18,11 +18,11 @@ class UI
     //sliders = new Sliders();
     //toggles = new ToggleGrid();
   
-    frameRatePos = new PVector(40, 40);
-    numberOfObjetsPos = new PVector(width - 50, 40);
-    activeScalePos = new PVector(width/2, height - 20);
-    UITextSize = 30;
-    iconSize = 25;
+    frameRatePos = new PVector(40, 20);
+    numberOfObjetsPos = new PVector(width - 50, 20);
+    activeScalePos = new PVector(width/2, height - 10);
+    UITextSize = 20;
+    iconSize = 15;
   }
   
   void Update()
@@ -144,8 +144,8 @@ class UI
     fill(0,0,0,100);
     text(scales.ActiveLabel(), activeScalePos.x, activeScalePos.y);
     fill(0,0,0,opacity);
-    text(scales.ActiveValue(), activeScalePos.x - 400, activeScalePos.y);
-    text(scales.ActiveValueRandomness(), activeScalePos.x + 400, activeScalePos.y);
+    text(scales.ActiveValue(), activeScalePos.x - 250, activeScalePos.y);
+    text(scales.ActiveValueRandomness(), activeScalePos.x + 250, activeScalePos.y);
 
   }
 }

@@ -7,6 +7,8 @@ A color organ or light synthesizer (a machine/application for generating and per
 
 Inspired by Thomas Wilfred and his clavilux, and Fry and his holophonor, and Hime and her spaceship.
 
+![screenshots](wip/timelapse.gif)
+
 ## User stories
 
 ```
